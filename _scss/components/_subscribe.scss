@@ -1,0 +1,40 @@
+.subscribe {
+  font-size: 1rem;
+  margin-bottom: 4rem;
+  text-align: center;
+
+  label {
+    color: $darkestGray;
+    font-size: 1rem;
+  }
+}
+
+.subscribe-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+
+  .email {
+    flex: 1 1 auto;
+    margin-right: .5rem;
+    max-width: 24rem;
+  }
+}
+
+
+@include media('>=md') {
+  .subscribe {
+    font-size: 1.333rem;
+  }
+}
+
+
+@include media('>=lg') {
+  .subscribe {
+    p {
+      span {
+        display: block;
+      }
+    }
+  }
+}

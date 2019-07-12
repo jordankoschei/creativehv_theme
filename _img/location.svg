@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>location</title>
+    <desc>Created with Sketch.</desc>
+    <g id="location" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ic-place-24px">
+            <path d="M10,1.66666667 C6.775,1.66666667 4.16666667,4.275 4.16666667,7.5 C4.16666667,11.875 10,18.3333333 10,18.3333333 C10,18.3333333 15.8333333,11.875 15.8333333,7.5 C15.8333333,4.275 13.225,1.66666667 10,1.66666667 Z M10,9.58333333 C8.85,9.58333333 7.91666667,8.65 7.91666667,7.5 C7.91666667,6.35 8.85,5.41666667 10,5.41666667 C11.15,5.41666667 12.0833333,6.35 12.0833333,7.5 C12.0833333,8.65 11.15,9.58333333 10,9.58333333 Z" id="Shape" fill-opacity="0.25" fill="#000000" fill-rule="nonzero"></path>
+            <polygon id="Path" points="0 0 20 0 20 20 0 20"></polygon>
+        </g>
+    </g>
+</svg>

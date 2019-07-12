@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>county</title>
+    <desc>Created with Sketch.</desc>
+    <g id="county" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ic-map-24px">
+            <path d="M17.0833333,2.5 L16.95,2.525 L12.5,4.25 L7.5,2.5 L2.8,4.08333333 C2.625,4.14166667 2.5,4.29166667 2.5,4.48333333 L2.5,17.0833333 C2.5,17.3166667 2.68333333,17.5 2.91666667,17.5 L3.05,17.475 L7.5,15.75 L12.5,17.5 L17.2,15.9166667 C17.375,15.8583333 17.5,15.7083333 17.5,15.5166667 L17.5,2.91666667 C17.5,2.68333333 17.3166667,2.5 17.0833333,2.5 Z M12.5,15.8333333 L7.5,14.075 L7.5,4.16666667 L12.5,5.925 L12.5,15.8333333 Z" id="Shape" fill-opacity="0.25" fill="#000000" fill-rule="nonzero"></path>
+            <polygon id="Path" points="0 0 20 0 20 20 0 20"></polygon>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,21 @@
+.simple {
+  margin-bottom: 4rem;
+
+  .inner {
+    max-width: 44rem;
+  }
+}
+
+@include media('>=md') {
+  .simple,
+  .simple + .subscribe {
+    margin-bottom: 6rem;
+  }
+}
+
+@include media('>=lg') {
+  .simple {
+    font-size: 19px;
+    line-height: 1.5;
+  }
+}
