@@ -133,6 +133,16 @@
       background-color: #1ED760;
       background-image: url('../img/spotify.svg');
     }
+
+    &.link-bandcamp::before {
+      background-color: #408294;
+      background-image: url('../img/bandcamp.svg');
+    }
+
+    &.link-apple-music::before {
+      background-color: #000;
+      background-image: url('../img/apple-music.svg');
+    }
   }
 }
 
