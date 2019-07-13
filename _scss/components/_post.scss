@@ -65,9 +65,10 @@
     background-repeat: no-repeat;
     background-size: 20px;
     display: inline-block;
-    height: 40px;
     line-height: 40px;
+    min-height: 40px;
     padding-left: 50px;
+    padding-right: 40px;
     position: relative;
     text-decoration: none;
     transition: transform $transition, background $transition;
@@ -85,11 +86,12 @@
       background-position: center;
       background-repeat: no-repeat;
       background-size: 24px;
+      bottom: 0;
       content: '';
       display: inline-block;
-      height: 40px;
       left: 0;
       position: absolute;
+      top: 0;
       width: 40px;
     }
 
@@ -125,6 +127,11 @@
     &.link-kickstarter::before {
       background-color: #2BDE73;
       background-image: url('../img/kickstarter.svg');
+    }
+
+    &.link-spotify::before {
+      background-color: #1ED760;
+      background-image: url('../img/spotify.svg');
     }
   }
 }
@@ -174,6 +181,7 @@
     flex: 1 1 25%;
     margin-left: 5%;
     margin-right: 2rem;
+    min-width: 25%;
   }
 
   .post-content {
