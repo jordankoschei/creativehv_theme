@@ -1,6 +1,10 @@
 .simple {
   margin-bottom: 4rem;
 
+  h1 h2, h3 {
+    line-height: 1.25;
+  }
+
   .inner {
     max-width: 36rem;
   }
