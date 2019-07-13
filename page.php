@@ -12,6 +12,7 @@
   <div class="inner">
     <h1 class="simple-title"><?php the_title(); ?></h1>
     <?php the_content(); ?>
+    <hr>
   </div>
 </div>
 
