@@ -9,7 +9,7 @@
     </div>
 
     <header class="post-header">
-      <h1 class="post-title"><?php the_title(); ?> <?php echo get_terms(array('taxonomy' => 'location')); ?></h1>
+      <h1 class="post-title"><?php the_title(); ?> <?php print_r(get_terms(array('taxonomy' => 'location'))); ?></h1>
       <div class="post-meta">
         <span class="icon icon-location"><?php echo array_pop(get_terms(array('taxonomy' => 'location')))->name; ?> (<?php echo array_pop(get_terms(array('taxonomy' => 'county')))->name; ?> County)</span>
         <?php foreach (get_the_category() as $cat) : ?>
