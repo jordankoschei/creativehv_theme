@@ -3,6 +3,12 @@
 <?php the_post(); ?>
 
 <div class="simple">
+  <?php if (has_post_thumbnail()) : ?>
+    <div class="simple-hero">
+      <?php the_post_thumbnail(); ?>
+    </div>
+  <?php endif; ?>
+
   <div class="inner">
     <h1 class="simple-title"><?php the_title(); ?></h1>
     <?php the_content(); ?>
