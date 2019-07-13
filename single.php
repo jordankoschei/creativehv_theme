@@ -11,7 +11,7 @@
     <header class="post-header">
       <h1 class="post-title"><?php the_title(); ?></h1>
       <div class="post-meta">
-        <span class="icon icon-location"><?php echo array_pop(get_terms(array('taxonomy' => 'location')))->name; ?> (<?php echo array_pop(get_terms(array('taxonomy' => 'county')))->name; ?> County)</span>
+        <span class="icon icon-location"><?php echo array_pop(get_the_terms(get_the_ID(), 'location'))->name; ?> (<?php echo array_pop(get_the_terms(get_the_ID(), 'county'))->name; ?> County)</span>
         <?php foreach (get_the_category() as $cat) : ?>
           <span class="icon icon-<?php echo $cat->slug; ?>"><?php echo $cat->name; ?></span>
         <?php endforeach; ?>

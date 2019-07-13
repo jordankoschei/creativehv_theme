@@ -42,4 +42,5 @@ function register_menus() {
   register_nav_menu( 'header', 'Header Menu' );
   register_nav_menu( 'footer', 'Footer Menu' );
   add_theme_support( 'post-thumbnails' );
+  add_theme_support( 'responsive-embeds' );
 }
