@@ -122,6 +122,20 @@
   }
 }
 
+.wp-block-quote {
+  background-color: $lightGray;
+  border-left: 4px solid $gray;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 1rem;
+
+  cite,
+  cite em {
+    font-size: .875rem;
+    font-style: normal;
+  }
+}
+
 
 @include media('>=md') {
   .post,
