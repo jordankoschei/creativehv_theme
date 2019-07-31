@@ -141,6 +141,11 @@
     }
   }
 
+  .hero-img-link img {
+    min-height: 400px;
+    object-fit: cover;
+  }
+
   .hero-hover:hover,
   .hero-hover:focus {
     .hero-img-link img {

@@ -30,7 +30,20 @@ while ( $query->have_posts() ) {
       $query->the_post();
       get_template_part('includes/post-card');
     }
-    ?>
+  ?>
+
+  <?php if ($query->found_posts % 3 != 0) : ?>
+    <div class="post-card post-card--blank">
+      <div>
+        More interviews are coming soon.<br />
+        <a href="<?php echo site_url(); ?>/suggest-an-interview/" class="post-card--blank__link">Suggest an interview</a>
+      </div>
+    </div>
+
+    <?php if ($query->found_posts % 2 != 0) : ?>
+      <div class="post-card post-card--empty"></div>
+    <?php endif; ?>
+  <?php endif; ?>
 </div>
 
 <?php get_template_part('includes/subscribe'); ?>

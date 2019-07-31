@@ -81,7 +81,7 @@
 
     &::before {
       background-color: $primary;
-      background-image: url('../img/link.svg');
+      background-image: url('../img/icons/link.svg');
       background-position: center;
       background-repeat: no-repeat;
       background-size: 24px;
@@ -93,61 +93,33 @@
       top: 0;
       width: 40px;
     }
-
-    &.link-website::before {
-      background-image: url('../img/website.svg');
-    }
-
-    &.link-twitter::before {
-      background-color: #1DA1F2;
-      background-image: url('../img/twitter.svg');
-    }
-
-    &.link-instagram::before {
-      background-color: #E4405F;
-      background-image: url('../img/instagram.svg');
-    }
-
-    &.link-soundcloud::before {
-      background-color: #FF3300;
-      background-image: url('../img/soundcloud.svg');
-    }
-
-    &.link-vimeo::before {
-      background-color: #1AB7EA;
-      background-image: url('../img/vimeo.svg');
-    }
-
-    &.link-youtube::before {
-      background-color: #FF0000;
-      background-image: url('../img/youtube.svg');
-    }
-
-    &.link-kickstarter::before {
-      background-color: #2BDE73;
-      background-image: url('../img/kickstarter.svg');
-    }
-
-    &.link-spotify::before {
-      background-color: #1ED760;
-      background-image: url('../img/spotify.svg');
-    }
-
-    &.link-bandcamp::before {
-      background-color: #408294;
-      background-image: url('../img/bandcamp.svg');
-    }
-
-    &.link-apple-music::before {
-      background-color: #000;
-      background-image: url('../img/apple-music.svg');
-    }
   }
 }
 
 .post-date {
   color: $darkestGray;
   font-size: .875em;
+}
+
+.post-edited {
+  display: block;
+  font-size: .875em;
+  font-style: italic;
+}
+
+.wp-block-image img {
+  vertical-align: middle;
+}
+
+.wp-block-image figcaption,
+.wp-block-embed figcaption {
+  color: $darkGray;
+}
+
+.post-content {
+  h2 {
+    margin-top: 1.66em;
+  }
 }
 
 
@@ -179,11 +151,6 @@
     .wp-block-embed {
       margin-left: 0;
       margin-right: 0;
-    }
-
-    .wp-block-image figcaption {
-      margin-top: 0;
-      color: $darkGray;
     }
   }
 }

@@ -1,0 +1,33 @@
+.post-card--blank {
+  background-color: $lightGray;
+  display: flex;
+  padding: 1rem;
+  text-align: center;
+
+  &:hover,
+  &:focus {
+    transform: scale(1);
+  }
+
+  &__link {
+    color: $darkerGray !important;
+    padding-bottom: 0 !important;
+    text-decoration: underline !important;
+    width: auto !important;
+  }
+
+  div {
+    align-self: center;
+    color: $darkGray;
+    font-size: .875rem;
+    width: 100%;
+  }
+
+  @include media('<md') {
+    display: none;
+  }
+}
+
+.post-card--empty {
+  background-color: transparent;
+}

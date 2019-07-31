@@ -7,6 +7,7 @@ var imagemin     = require('gulp-imagemin');
 var pngquant     = require('imagemin-pngquant');
 var rename       = require('gulp-rename');
 var gulpCopy     = require('gulp-copy');
+var colorize = require('gulp-colorize-svgs');
 
 function scss(cb) {
   gulp.src('_scss/app.scss')
@@ -46,6 +47,31 @@ function img(cb) {
       use: [pngquant()]
     }))
     .pipe(gulp.dest('./assets/img'));
+
+  gulp.src('_img/icons/*')
+    .pipe(colorize({
+      colors: {
+        default: {
+          black: '#000000'
+        }
+      },
+      replaceColor: function(content, hex) {
+        return content.replace(/<path/g, '<path fill="#fff"');
+      },
+      replacePath: function(path, colorKey) {
+        return path;
+      }
+    }))
+    .pipe(imagemin({
+      progressive: true,
+      svgoPlugins: [
+        {removeViewBox: false},
+        {cleanupIDs: false}
+      ],
+      use: [pngquant()]
+    }))
+    .pipe(gulp.dest('./assets/img/icons'));
+
   cb();
 }
 
