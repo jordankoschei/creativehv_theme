@@ -37,7 +37,7 @@
         <?php the_content(); ?>
         <?php if (get_field('edited')) : ?>
           <span class="post-edited">This interview has been edited for length and clarity.</span>
-        <? endif; ?>
+        <?php endif; ?>
         <span class="post-date icon icon-date">Published on <?php the_date(); ?></span>
       </div>
     </div>
