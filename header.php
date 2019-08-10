@@ -30,6 +30,8 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <?php wp_head(); ?>
+
+  <link rel="alternate" type="application/rss+xml" title="Creative Hudson Valley" href="<?php bloginfo('url'); ?>/?feed=rss2" />
 </head>
 <body <?php body_class(); ?>>
 
