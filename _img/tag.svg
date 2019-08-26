@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.2 (81672) - https://sketch.com -->
+    <title>tag</title>
+    <desc>Created with Sketch.</desc>
+    <g id="tag" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ic_label_24px">
+            <polygon id="Path" points="0 0 20 0 20 20 0 20"></polygon>
+            <path d="M14.6916667,4.86666667 C14.3916667,4.44166667 13.8916667,4.16666667 13.3333333,4.16666667 L4.16666667,4.175 C3.25,4.175 2.5,4.91666667 2.5,5.83333333 L2.5,14.1666667 C2.5,15.0833333 3.25,15.825 4.16666667,15.825 L13.3333333,15.8333333 C13.8916667,15.8333333 14.3916667,15.5583333 14.6916667,15.1333333 L18.3333333,10 L14.6916667,4.86666667 Z" id="Path" fill="#BBC7CD" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

@@ -31,6 +31,8 @@
 
 @include media('>=lg') {
   .subscribe {
+    margin: 8rem auto;
+
     p {
       span {
         display: block;

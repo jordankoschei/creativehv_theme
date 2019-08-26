@@ -5,13 +5,20 @@
 <article class="post">
   <div class="inner">
     <div class="post-hero">
-      <?php the_post_thumbnail(); ?>
+      <?php
+        if (has_post_thumbnail()) { the_post_thumbnail(); }
+        else {
+      ?>
+        <img src="<?php bloginfo('template_directory'); ?>/assets/img/hero.jpg" alt="The Hudson Valley">
+      <?php } ?>
     </div>
 
     <header class="post-header">
       <h1 class="post-title"><?php the_title(); ?></h1>
       <div class="post-meta">
-        <span class="icon icon-location"><?php echo array_pop(get_the_terms(get_the_ID(), 'location'))->name; ?> (<?php echo array_pop(get_the_terms(get_the_ID(), 'county'))->name; ?> County)</span>
+        <?php if (get_the_terms(get_the_ID(), 'location') && get_the_terms(get_the_ID(), 'county')) : ?>
+          <span class="icon icon-location"><?php echo array_pop(get_the_terms(get_the_ID(), 'location'))->name; ?> (<?php echo array_pop(get_the_terms(get_the_ID(), 'county'))->name; ?> County)</span>
+        <?php endif; ?>
         <?php foreach (get_the_category() as $cat) : ?>
           <span class="icon icon-<?php echo $cat->slug; ?>"><?php echo $cat->name; ?></span>
         <?php endforeach; ?>

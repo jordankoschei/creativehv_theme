@@ -3,20 +3,19 @@ input[type="email"],
 input[type="url"],
 textarea {
   background-color: $white;
-  border: 3px solid transparent;
-  box-shadow: 0 1px 0 $lightGray;
+  border: 1px solid $lightishGray;
   font-family: $sans;
   font-size: 1rem;
   padding: .5rem;
   transition: border $transition;
 
   &:hover {
-    border-color: transparentize($primary, .75);
+    border-color: transparentize($primary, .5);
     box-shadow: none;
   }
 
   &:focus {
-    border-color: transparentize($primary, .5);
+    border-color: transparentize($primary, .25);
     box-shadow: none;
     outline: none;
   }
