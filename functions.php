@@ -1,4 +1,19 @@
 <?php
+// Add description to RSS
+function update_rss($content) {
+  if ( is_feed() ){
+    $content = '<p>' . get_field('description') . '</p>' . $content;
+  }
+  return $content;
+}
+add_filter('the_content', 'update_rss');
+
+function update_rss_excerpt($content) {
+  return get_field('description');
+}
+add_filter('the_excerpt_rss', 'update_rss_excerpt');
+
+
 
 // Hide password-protected posts
 function wpb_password_post_filter( $where = '' ) {
@@ -41,7 +56,7 @@ function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
 }
 
 function add_theme_scripts() {
-  wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/app.min.css', false, '1.12', 'all');
+  wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/app.min.css', false, '1.13', 'all');
   wp_enqueue_script( 'script', get_template_directory_uri() . '/assets/js/app.min.js', false, '1.0', false);
 }
 add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );

@@ -157,7 +157,8 @@
   .post-content {
     flex: 1 1 65%;
 
-    p:first-child { margin-top: 0; }
+    p:first-child,
+    p:nth-child(2) { margin-top: 0; }
 
     h2 {
       line-height: 1.25;

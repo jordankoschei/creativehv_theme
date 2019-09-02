@@ -23,7 +23,7 @@
           <span class="icon icon-<?php echo $cat->slug; ?>"><?php echo $cat->name; ?></span>
         <?php endforeach; ?>
       </div>
-      <p class="post-subtitle"><?php the_field('description'); ?></p>
+      <p class="post-subtitle" aria-hidden="true"><?php the_field('description'); ?></p>
     </header>
 
     <div class="post-container">
@@ -41,6 +41,7 @@
       </div>
 
       <div class="post-content">
+        <p class="sr-only"><?php the_field('description'); ?></p>
         <?php the_content(); ?>
         <?php if (get_field('edited')) : ?>
           <span class="post-edited">This interview has been edited for length and clarity.</span>
