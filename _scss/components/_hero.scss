@@ -1,14 +1,6 @@
 .hero {
   margin-bottom: 2rem;
 
-  img {
-    height: auto;
-    margin-left: -1rem;
-    margin-right: -1rem;
-    vertical-align: middle;
-    width: calc(100% + 2rem);
-  }
-
   a {
     text-decoration: none;
     color: $black;
@@ -23,6 +15,23 @@
         background-position: calc(100% - .75rem) calc(100% - 1rem);
       }
     }
+  }
+}
+
+.hero-img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  vertical-align: middle;
+  width: calc(100% + 2rem);
+
+  &::before {
+    content: '';
+    display: block;
+    padding-bottom: 50%;
   }
 }
 
@@ -111,12 +120,6 @@
     margin-bottom: 4rem;
     position: relative;
 
-    img {
-      margin-left: 0;
-      margin-right: 0;
-      width: 70%;
-    }
-
     a {
       &:hover,
       &:focus {
@@ -125,6 +128,12 @@
         }
       }
     }
+  }
+
+  .hero-img {
+    margin-left: 0;
+    margin-right: 0;
+    width: 70%;
   }
 
   .hero-content {
@@ -156,14 +165,12 @@
 }
 
 @include media('>=xl') {
-  .hero {
-    img {
-      width: 75%;
-    }
+  .hero-img {
+    width: 75%;
+  }
 
-    .hero-content {
-      bottom: 2rem;
-      width: 35%;
-    }
+  .hero-content {
+    bottom: 2rem;
+    width: 35%;
   }
 }

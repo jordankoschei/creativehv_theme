@@ -1,7 +1,7 @@
 <div class="inner hero-inner">
   <article class="hero">
     <a href="<?php the_permalink(); ?>">
-      <?php the_post_thumbnail(); ?>
+      <div class="hero-img" style="background-image: url(<?php the_post_thumbnail_url() ?>)"></div>
 
       <div class="hero-content">
         <h1 class="hero-title"><?php the_title(); ?></h1>

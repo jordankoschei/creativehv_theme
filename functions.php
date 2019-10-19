@@ -56,7 +56,7 @@ function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
 }
 
 function add_theme_scripts() {
-  wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/app.min.css', false, '1.14', 'all');
+  wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/app.min.css', false, '1.15', 'all');
   wp_enqueue_script( 'script', get_template_directory_uri() . '/assets/js/app.min.js', false, '1.0', false);
 }
 add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
