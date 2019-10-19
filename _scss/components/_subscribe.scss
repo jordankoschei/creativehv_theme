@@ -1,6 +1,6 @@
 .subscribe {
   font-size: 1rem;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   text-align: center;
 
   label {
@@ -21,6 +21,8 @@
   }
 }
 
+.top-subscribe { display: none; }
+
 
 @include media('>=md') {
   .subscribe {
@@ -31,12 +33,17 @@
 
 @include media('>=lg') {
   .subscribe {
-    margin: 8rem auto;
+    margin: 1rem auto 3rem;
 
     p {
       span {
         display: block;
       }
     }
+  }
+
+  .top-subscribe {
+    display: block;
+    margin-top: -1rem;
   }
 }

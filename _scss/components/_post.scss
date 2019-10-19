@@ -22,6 +22,10 @@
   padding: .25rem .5rem 0;
 }
 
+.post-subtitle {
+  display: none;
+}
+
 .post-meta {
   background-color: $lightestGray;
   display: block;
@@ -35,18 +39,15 @@
   }
 }
 
-.post-subtitle {
-  font-size: 1.25rem;
-  padding: 0 .5rem;
-}
-
 .post-links {
-  h2 {
-    font-size: 1rem;
-    margin: 0 0 .5rem;
-  }
+  margin-top: 1.5rem;
+
+  h2 { display: none; }
 
   ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -54,25 +55,18 @@
 
   li {
     margin-bottom: .5rem;
-
-    &:last-child { margin-bottom: 0; }
+    margin-right: .5rem;
   }
 
   a {
-    background-color: $white;
-    background-image: url('../img/arrow-right-gray.svg');
-    background-position: calc(100% - .5rem) center;
-    background-repeat: no-repeat;
-    background-size: 20px;
     display: inline-block;
     font-size: .875rem;
     line-height: 1;
     min-height: 40px;
-    padding: 12px 40px 12px 50px;
+    padding: 12px 12px 12px 50px;
     position: relative;
     text-decoration: none;
-    transition: transform $transition, background $transition;
-    width: 100%;
+    transition: transform $transition;
 
     &:hover,
     &:focus {
@@ -86,6 +80,7 @@
       background-position: center;
       background-repeat: no-repeat;
       background-size: 24px;
+      border-radius: 50%;
       bottom: 0;
       content: '';
       display: inline-block;
@@ -93,6 +88,12 @@
       position: absolute;
       top: 0;
       width: 40px;
+    }
+
+    &::after {
+      color: $gray;
+      content: '\2197';
+      margin-left: .25rem;
     }
   }
 }
@@ -137,6 +138,12 @@
   }
 }
 
+.post-content .lg {
+  margin-left: -1rem;
+  margin-right: -1rem;
+  max-width: calc(100% + 2rem);
+}
+
 
 @include media('>=md') {
   .post,
@@ -149,9 +156,29 @@
     display: flex;
   }
 
+  .post-subtitle {
+    display: block;
+    font-size: 1.25rem;
+    padding: 0 .5rem;
+  }
+
   .post-links {
+    background-color: transparent;
     flex: 1 1 35%;
+    margin-left: auto;
     margin-right: 1rem;
+    margin-top: 0;
+    padding: 0;
+
+    h2 {
+      display: block;
+      font-size: 1rem;
+      margin: 0 0 .5rem;
+    }
+
+    li {
+      width: 100%;
+    }
   }
 
   .post-content {
@@ -168,6 +195,20 @@
       margin-left: 0;
       margin-right: 0;
     }
+  }
+
+  .post-content-first-p {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    -webkit-clip-path: inset(50%) !important;
+      clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
   }
 }
 

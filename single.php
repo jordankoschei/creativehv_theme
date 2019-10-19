@@ -27,21 +27,19 @@
     </header>
 
     <div class="post-container">
-      <div class="post-links">
-        <h2>Links</h2>
-        <?php if ( have_rows('links') ) : ?>
+      <?php if ( have_rows('links') ) : ?>
+        <div class="post-links">
+          <h2>Links</h2>
           <ul>
             <?php while ( have_rows('links') ) : the_row(); ?>
               <li><a href="<?php the_sub_field('url'); ?>" class="link-<?php the_sub_field('type'); ?>"><?php the_sub_field('name'); ?></a></li>
             <?php endwhile; ?>
           </ul>
-        <?php else : ?>
-          <p>There are no links. Hm. 🤔</p>
-        <?php endif; ?>
-      </div>
+        </div>
+      <?php endif; ?>
 
       <div class="post-content">
-        <p class="sr-only"><?php the_field('description'); ?></p>
+        <p class="post-content-first-p"><?php the_field('description'); ?></p>
         <?php the_content(); ?>
         <?php if (get_field('edited')) : ?>
           <span class="post-edited">This interview has been edited for length and clarity.</span>

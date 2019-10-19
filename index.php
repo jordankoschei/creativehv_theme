@@ -21,6 +21,15 @@ while ( $query->have_posts() ) {
 }
 ?>
 
+<div class="subscribe top-subscribe">
+  <div class="inner">
+    <p>
+      <strong>Creative Hudson Valley</strong> is a celebration of the Hudson Valley's incredible
+      <span>creative energy and the people who choose to live and work here.</span>
+    </p>
+  </div>
+</div>
+
 <div class="inner posts">
   <?php
     $args = array( 'post__not_in' => array($sticky[0]) );

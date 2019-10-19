@@ -4,16 +4,21 @@
 
 .post-card {
   background-color: $white;
+  background-image: url('../img/arrow-right.svg');
+  background-position: calc(100% - 1rem) calc(100% - 1rem);
+  background-repeat: no-repeat;
+  background-size: 1rem;
   backface-visibility: hidden;
   box-shadow: 0 1px 0 $lightGray;
   margin-bottom: 2rem;
   position: relative;
-  transition: transform $transition;
+  transition: transform $transition, background $transition;
   width: 100%;
 
   &:hover,
   &:focus {
     transform: scale(1.01);
+    background-position: calc(100% - .75rem) calc(100% - 1rem);
 
     .post-card-cta::after {
       transform: translateX(4px);
@@ -48,6 +53,7 @@
   z-index: 1;
 
   p {
+    font-size: 16px;
     margin: 0;
     padding-left: .5rem;
   }
@@ -58,8 +64,28 @@
   display: inline-block;
   font-size: 1.5rem;
   line-height: 1;
-  margin: 0 0 .5rem;
+  margin: 0;
   padding: .5rem;
+}
+
+.post-card-subtitle {
+  font-size: 18px;
+  line-height: 1.25;
+  margin: 0 0 .75rem;
+  padding: 0 .5rem 0;
+}
+
+.post-card-categories {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  font-size: 14px;
+  color: $darkGray;
+
+  .icon {
+    margin-right: .75rem;
+    padding-left: 24px;
+  }
 }
 
 .post-card-cta {

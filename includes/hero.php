@@ -1,21 +1,20 @@
-<article class="hero inner">
-  <div class="hero-hover">
-    <a href="<?php the_permalink(); ?>" class="hero-img-link">
+<div class="inner hero-inner">
+  <article class="hero">
+    <a href="<?php the_permalink(); ?>">
       <?php the_post_thumbnail(); ?>
-    </a>
 
-    <a href="<?php the_permalink(); ?>" class="hero-text">
-      <h1><?php the_title(); ?></h1>
-      <div>
-        <div class="hero-text-description">
-          <div>
-            <p><?php the_field('description'); ?></p>
+      <div class="hero-content">
+        <h1 class="hero-title"><?php the_title(); ?></h1>
+        <h2 class="hero-subtitle"><?php the_field('one-liner'); ?></h2>
+        <div class="hero-content-frame">
+          <p class="hero-description"><?php the_field('description'); ?></p>
+          <div class="hero-categories">
+            <?php foreach (get_the_category() as $cat) : ?>
+              <span class="icon icon-<?php echo $cat->slug; ?>"><?php echo $cat->name; ?></span>
+            <?php endforeach; ?>
           </div>
-        </div>
-        <div class="hero-cta">
-          <span>Read the interview</span>
         </div>
       </div>
     </a>
-  </div>
-</article>
+  </article>
+</div>
