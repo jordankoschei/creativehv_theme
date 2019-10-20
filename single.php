@@ -32,7 +32,7 @@
           <h2>Links</h2>
           <ul>
             <?php while ( have_rows('links') ) : the_row(); ?>
-              <li><a href="<?php the_sub_field('url'); ?>" class="link-<?php the_sub_field('type'); ?>"><?php the_sub_field('name'); ?></a></li>
+              <li><a href="<?php the_sub_field('url'); ?>" class="link-<?php the_sub_field('type'); ?>" target="_blank"><?php the_sub_field('name'); ?></a></li>
             <?php endwhile; ?>
           </ul>
         </div>

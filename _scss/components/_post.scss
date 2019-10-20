@@ -107,6 +107,7 @@
   display: block;
   font-size: .875em;
   font-style: italic;
+  margin: 1rem 0 .75rem;
 }
 
 .wp-block-image img {
@@ -116,6 +117,7 @@
 .wp-block-image figcaption,
 .wp-block-embed figcaption {
   color: $darkGray;
+  padding: 0 1rem;
 }
 
 .post-content {
