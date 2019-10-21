@@ -27,6 +27,7 @@
   <meta name="msapplication-wide310x150logo" content="<?php echo get_template_directory_uri(); ?>/assets/img/mstile-310x150.png" />
   <meta name="msapplication-square310x310logo" content="<?php echo get_template_directory_uri(); ?>/assets/img/mstile-310x310.png" />
 
+  <meta name="p:domain_verify" content="abf60f20b81ec1e72dbfa1bc627ccfae"/>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <?php wp_head(); ?>
