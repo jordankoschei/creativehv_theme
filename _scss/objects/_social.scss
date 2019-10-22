@@ -34,6 +34,11 @@
     &:focus svg { fill: #0077b5; }
   }
 
+  &-pinterest {
+    &:hover svg,
+    &:focus svg { fill: #bd081c; }
+  }
+
   &-rss {
     &:hover svg,
     &:focus svg { fill: #f26522; }

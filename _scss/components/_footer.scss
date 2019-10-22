@@ -107,7 +107,7 @@
 
 
 
-@include media('>=md') {
+@include media('>=lg') {
   .footer .inner {
     flex-direction: row;
     justify-content: space-between;
