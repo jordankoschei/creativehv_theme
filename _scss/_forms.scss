@@ -22,7 +22,8 @@ textarea {
 }
 
 input[type="submit"],
-button {
+button,
+.buttons a {
   background-color: $primary;
   backface-visibility: hidden;
   border: 0;

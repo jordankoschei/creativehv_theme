@@ -170,6 +170,24 @@
   margin-left: -1rem !important;
   margin-right: -1rem !important;
   max-width: calc(100% + 2rem) !important;
+
+  code {
+    background-color: transparentize($gold, .75);
+    border: 1px solid transparentize($gold, .75);
+    border-radius: 2px;
+    color: darken($gold, 20%);
+    padding: 0 .25em;
+  }
+
+  .buttons {
+    margin-bottom: -.5rem;
+
+    a {
+      display: inline-block;
+      margin: 0 .5rem .5rem 0;
+      text-decoration: none;
+    }
+  }
 }
 
 
