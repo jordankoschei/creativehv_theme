@@ -77,3 +77,24 @@ function tweakjp_rm_comments_att( $open, $post_id ) {
     return $open;
 }
 add_filter( 'comments_open', 'tweakjp_rm_comments_att', 10 , 2 );
+
+
+// remove update notice for certain plugins
+add_filter( 'site_transient_update_plugins', function ($value) {
+  if ( isset( $value ) && is_object( $value ) ) {
+    unset( $value->response[ 'wp-migrate-db-pro/wp-migrate-db-pro.php' ] );
+    unset( $value->response[ 'wp-migrate-db-pro-media-files/wp-migrate-db-pro-media-files.php' ] );
+  }
+
+  return $value;
+});
+
+add_action('admin_head', function () {
+  ?>
+  <style>
+    .wpmdbpro-custom {
+      display: none;
+    }
+  </style>
+  <?php
+});
