@@ -9,8 +9,9 @@ var rename       = require('gulp-rename');
 var replace      = require('gulp-replace');
 var gulpCopy     = require('gulp-copy');
 var colorize     = require('gulp-colorize-svgs');
+var server  = require('browser-sync').create();
 
-function scss(cb) {
+function scss(done) {
   gulp.src('_scss/app.scss')
     .pipe(sass({
       outputStyle: 'compressed',
@@ -23,31 +24,32 @@ function scss(cb) {
       cascade: false
     }))
     .pipe(rename('app.min.css'))
-    .pipe(gulp.dest('./assets/css'));
+    .pipe(gulp.dest('./assets/css'))
+    .pipe(server.stream());
 
-  var cbString = new Date().getTime();
+  var doneString = new Date().getTime();
   gulp.src(["functions.php"])
     .pipe(
       replace(/\$cache_buster = \S+/g, function() {
-        return "$cache_buster = " + cbString + ";";
+        return "$cache_buster = " + doneString + ";";
       })
     )
     .pipe(gulp.dest('.'));
 
-  cb();
+  done();
 }
 
-function js(cb) {
+function js(done) {
   gulp.src('_js/*.js')
     .pipe(uglify())
     .pipe(rename(function (path) {
       path.extname = '.min.js';
     }))
     .pipe(gulp.dest('./assets/js'));
-  cb();
+  done();
 }
 
-function img(cb) {
+function img(done) {
   gulp.src('_img/*')
     .pipe(imagemin({
       progressive: true,
@@ -83,12 +85,20 @@ function img(cb) {
     }))
     .pipe(gulp.dest('./assets/img/icons'));
 
-  cb();
+  done();
+}
+
+function serve(done) {
+  server.init({
+    proxy: 'creativehv.test'
+  });
+  done();
 }
 
 function watch() {
   gulp.watch('_scss/**/*.scss', scss);
   gulp.watch('_img/**/*', img);
+  gulp.watch('**/*.php').on('change', server.reload);
 }
 
-exports.default = gulp.series(gulp.parallel(scss, img), watch);
+exports.default = gulp.series(serve, gulp.parallel(scss, img), watch);
