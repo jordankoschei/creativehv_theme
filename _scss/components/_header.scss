@@ -132,7 +132,7 @@
 
 @include media('>=md') {
   .header {
-    // margin-bottom: 2rem;
+    margin-bottom: 2rem;
     padding: 0;
 
     .inner {
@@ -144,5 +144,9 @@
 
   .logo {
     margin: 0;
+  }
+
+  .menu-header-menu-container a {
+    font-size: .875rem;
   }
 }

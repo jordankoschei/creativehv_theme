@@ -42,5 +42,9 @@
   &-rss {
     &:hover svg,
     &:focus svg { fill: #f26522; }
+
+    svg {
+      transform: scale(0.9);
+    }
   }
 }
