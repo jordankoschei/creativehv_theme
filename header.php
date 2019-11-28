@@ -6,6 +6,9 @@
   <link rel="profile" href="http://gmpg.org/xfn/11" />
   <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
+  <?php if (get_home_url() == 'http://creativehv.test') : ?>
+  <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/assets/img/dev-favicon.png" sizes="16x16" />
+  <?php else: ?>
   <link rel="apple-touch-icon-precomposed" sizes="57x57" href="<?php echo get_template_directory_uri(); ?>/assets/img/apple-touch-icon-57x57.png" />
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo get_template_directory_uri(); ?>/assets/img/apple-touch-icon-114x114.png" />
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo get_template_directory_uri(); ?>/assets/img/apple-touch-icon-72x72.png" />
@@ -26,6 +29,7 @@
   <meta name="msapplication-square150x150logo" content="<?php echo get_template_directory_uri(); ?>/assets/img/mstile-150x150.png" />
   <meta name="msapplication-wide310x150logo" content="<?php echo get_template_directory_uri(); ?>/assets/img/mstile-310x150.png" />
   <meta name="msapplication-square310x310logo" content="<?php echo get_template_directory_uri(); ?>/assets/img/mstile-310x310.png" />
+  <?php endif; ?>
 
   <meta name="p:domain_verify" content="abf60f20b81ec1e72dbfa1bc627ccfae"/>
 
