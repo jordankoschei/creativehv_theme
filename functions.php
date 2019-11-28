@@ -1,6 +1,6 @@
 <?php
 function add_theme_scripts() {
-  $cache_buster = 1574950731948;
+  $cache_buster = 1574950881662;
   wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/app.min.css', false, $cache_buster, 'all');
 }
 add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
