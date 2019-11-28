@@ -1,4 +1,10 @@
 <?php
+function add_theme_scripts() {
+  $cache_buster = 1574915752143;
+  wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/app.min.css', false, $cache_buster, 'all');
+}
+add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
+
 // Add description to RSS
 function update_rss($content) {
   if ( is_feed() ){
@@ -55,12 +61,6 @@ function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
   return $urls;
 }
 
-function add_theme_scripts() {
-  wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/app.min.css', false, '1.17', 'all');
-  wp_enqueue_script( 'script', get_template_directory_uri() . '/assets/js/app.min.js', false, '1.0', false);
-}
-add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
-
 add_action( 'after_setup_theme', 'register_menus' );
 function register_menus() {
   register_nav_menu( 'header', 'Header Menu' );
@@ -98,3 +98,64 @@ add_action('admin_head', function () {
   </style>
   <?php
 });
+
+
+function cptui_register_my_taxes() {
+
+  /**
+   * Taxonomy: Locations.
+   */
+
+  $labels = [
+    "name" => __( "Locations", "custom-post-type-ui" ),
+    "singular_name" => __( "Location", "custom-post-type-ui" ),
+  ];
+
+  $args = [
+    "label" => __( "Locations", "custom-post-type-ui" ),
+    "labels" => $labels,
+    "public" => true,
+    "publicly_queryable" => true,
+    "hierarchical" => true,
+    "show_ui" => true,
+    "show_in_menu" => true,
+    "show_in_nav_menus" => true,
+    "query_var" => true,
+    "rewrite" => [ 'slug' => 'location', 'with_front' => true, ],
+    "show_admin_column" => false,
+    "show_in_rest" => true,
+    "rest_base" => "location",
+    "rest_controller_class" => "WP_REST_Terms_Controller",
+    "show_in_quick_edit" => false,
+    ];
+  register_taxonomy( "location", [ "post" ], $args );
+
+  /**
+   * Taxonomy: Counties.
+   */
+
+  $labels = [
+    "name" => __( "Counties", "custom-post-type-ui" ),
+    "singular_name" => __( "County", "custom-post-type-ui" ),
+  ];
+
+  $args = [
+    "label" => __( "Counties", "custom-post-type-ui" ),
+    "labels" => $labels,
+    "public" => true,
+    "publicly_queryable" => true,
+    "hierarchical" => true,
+    "show_ui" => true,
+    "show_in_menu" => true,
+    "show_in_nav_menus" => true,
+    "query_var" => true,
+    "rewrite" => [ 'slug' => 'county', 'with_front' => true, ],
+    "show_admin_column" => false,
+    "show_in_rest" => true,
+    "rest_base" => "county",
+    "rest_controller_class" => "WP_REST_Terms_Controller",
+    "show_in_quick_edit" => false,
+    ];
+  register_taxonomy( "county", [ "post" ], $args );
+}
+add_action( 'init', 'cptui_register_my_taxes' );

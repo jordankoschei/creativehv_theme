@@ -6,8 +6,9 @@ var uglify       = require('gulp-uglify');
 var imagemin     = require('gulp-imagemin');
 var pngquant     = require('imagemin-pngquant');
 var rename       = require('gulp-rename');
+var replace      = require('gulp-replace');
 var gulpCopy     = require('gulp-copy');
-var colorize = require('gulp-colorize-svgs');
+var colorize     = require('gulp-colorize-svgs');
 
 function scss(cb) {
   gulp.src('_scss/app.scss')
@@ -23,6 +24,16 @@ function scss(cb) {
     }))
     .pipe(rename('app.min.css'))
     .pipe(gulp.dest('./assets/css'));
+
+  var cbString = new Date().getTime();
+  gulp.src(["functions.php"])
+    .pipe(
+      replace(/\$cache_buster = \S+/g, function() {
+        return "$cache_buster = " + cbString + ";";
+      })
+    )
+    .pipe(gulp.dest('.'));
+
   cb();
 }
 
@@ -75,8 +86,9 @@ function img(cb) {
   cb();
 }
 
-exports.default = function() {
+function watch() {
   gulp.watch('_scss/**/*.scss', scss);
-  gulp.watch('_js/**/*.js', js);
   gulp.watch('_img/**/*', img);
-};
+}
+
+exports.default = gulp.series(gulp.parallel(scss, img), watch);
