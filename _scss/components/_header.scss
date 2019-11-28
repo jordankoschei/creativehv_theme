@@ -105,6 +105,10 @@
   }
 }
 
+@include media('<sm') {
+  .no-mobile { display: none; }
+}
+
 @include media('>=sm') {
   .menu-header-menu-container {
     flex-direction: row;
