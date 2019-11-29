@@ -54,23 +54,33 @@
 
 <div class="inner posts">
   <?php
-    $args = array( 'post__not_in' => array(get_the_ID()) );
-    $query = new WP_Query( $args );
+    $args = array(
+      'posts_per_page' => 3,
+      'post__not_in' => array(get_the_ID()),
+      'category__in' => wp_get_post_categories(get_the_ID(), 'ids')
+    );
+    $related = new WP_Query( $args );
 
-    while ( $query->have_posts() ) {
-      $query->the_post();
+    while ( $related->have_posts() ) {
+      $related->the_post();
       get_template_part('includes/post-card');
     }
-  ?>
 
-  <?php if ($query->found_posts % 3 != 0) : ?>
-    <div class="post-card post-card--blank">
-      <div>
-        More interviews are coming soon.<br />
-        <a href="<?php echo site_url(); ?>/suggest-an-interview/" class="post-card--blank__link">Suggest an interview</a>
-      </div>
-    </div>
-  <?php endif; ?>
+    if ($related->post_count < 3) {
+      $args = array(
+        'posts_per_page' => 3 - $related->post_count,
+        'post__not_in' => array(
+          array_merge([get_the_ID()], wp_list_pluck($related->posts, 'ID'))
+        )
+      );
+      $related2 = new WP_Query( $args );
+
+      while ( $related2->have_posts() ) {
+        $related2->the_post();
+        get_template_part('includes/post-card');
+      }
+    }
+  ?>
 </div>
 
 <?php get_footer(); ?>
