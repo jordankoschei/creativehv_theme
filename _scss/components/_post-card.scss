@@ -1,5 +1,12 @@
 .posts {
   margin-bottom: 2rem;
+  text-align: center;
+
+  & > h2 {
+    font-size: 1rem;
+    font-family: $sans;
+    text-align: left;
+  }
 }
 
 .post-card {
@@ -12,6 +19,7 @@
   box-shadow: 0 1px 0 $lightGray;
   margin-bottom: 2rem;
   position: relative;
+  text-align: left;
   transition: transform $transition, background $transition;
   width: 100%;
 
@@ -113,9 +121,11 @@
 
 @include media('>=md') {
   .posts {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
   }
 
   .post-card {

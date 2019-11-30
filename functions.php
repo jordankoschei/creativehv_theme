@@ -9,7 +9,7 @@
 // Add CSS (and JS, eventually, maybe) to <head>
 // Also includes the cache-busting via gulpfile
   function add_theme_scripts() {
-    $cache_buster = 1574955090542;
+    $cache_buster = 1575152012417;
     wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/app.min.css', false, $cache_buster, 'all');
   }
   add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
@@ -99,6 +99,10 @@
     return $where;
   }
   add_filter( 'posts_where', 'wpb_password_post_filter' );
+
+// Add classes to pagination links
+  add_filter('next_posts_link_attributes', function () { return 'class="pagination-next"'; });
+  add_filter('previous_posts_link_attributes', function () { return 'class="pagination-prev"'; });
 
 
 // ----------------------------------------------------------------------------------------------//

@@ -23,24 +23,25 @@ textarea {
 
 input[type="submit"],
 button,
+.button,
 .buttons a {
   background-color: $primary;
   backface-visibility: hidden;
   border: 0;
   color: $white;
   cursor: pointer;
+  display: inline-block;
   font-size: 1rem;
   padding: .5rem 1rem;
+  text-decoration: none;
   transition: transform $transition;
 
   &:hover {
     background-color: lighten($primary, 5%);
-    transform: scale(1.025);
   }
 
   &:active {
     background-color: darken($primary, 5%);
-    transform: scale(.95);
   }
 
   &:focus {

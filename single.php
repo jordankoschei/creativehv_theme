@@ -53,34 +53,38 @@
 <?php get_template_part('includes/subscribe'); ?>
 
 <div class="inner posts">
-  <?php
-    $args = array(
-      'posts_per_page' => 3,
-      'post__not_in' => array(get_the_ID()),
-      'category__in' => wp_get_post_categories(get_the_ID(), 'ids')
-    );
-    $related = new WP_Query( $args );
-
-    while ( $related->have_posts() ) {
-      $related->the_post();
-      get_template_part('includes/post-card');
-    }
-
-    if ($related->post_count < 3) {
+  <h2>Related interviews:</h2>
+  <div class="cards">
+    <?php
       $args = array(
-        'posts_per_page' => 3 - $related->post_count,
-        'post__not_in' => array(
-          array_merge([get_the_ID()], wp_list_pluck($related->posts, 'ID'))
-        )
+        'posts_per_page' => 3,
+        'post__not_in' => array(get_the_ID()),
+        'category__in' => wp_get_post_categories(get_the_ID(), 'ids')
       );
-      $related2 = new WP_Query( $args );
+      $related = new WP_Query( $args );
 
-      while ( $related2->have_posts() ) {
-        $related2->the_post();
+      while ( $related->have_posts() ) {
+        $related->the_post();
         get_template_part('includes/post-card');
       }
-    }
-  ?>
+
+      if ($related->post_count < 3) {
+        $args = array(
+          'posts_per_page' => 3 - $related->post_count,
+          'post__not_in' => array(
+            array_merge([get_the_ID()], wp_list_pluck($related->posts, 'ID'))
+          )
+        );
+        $related2 = new WP_Query( $args );
+
+        while ( $related2->have_posts() ) {
+          $related2->the_post();
+          get_template_part('includes/post-card');
+        }
+      }
+    ?>
+  </div>
+  <a href="<?php echo get_home_url(); ?>" class="button">See all interviews &rarr;</a>
 </div>
 
 <?php get_footer(); ?>

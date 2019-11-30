@@ -14,42 +14,51 @@ if ( ! $sticky) {
   $sticky = get_posts("numberposts=1&fields=ids");
 }
 $query = new WP_Query( 'p=' . $sticky[0] );
-
-while ( $query->have_posts() ) {
-  $query->the_post();
-  get_template_part('includes/hero');
-}
 ?>
 
-<div class="subscribe top-subscribe">
-  <div class="inner">
-    <p>
-      <strong>Creative Hudson Valley</strong> is a celebration of the Hudson Valley's incredible
-      <span>creative energy and the people who choose to live and work here.</span>
-    </p>
+<?php if (! is_paged()) : ?>
+  <?php
+  while ( $query->have_posts() ) {
+    $query->the_post();
+    get_template_part('includes/hero');
+  }
+  ?>
+
+  <div class="subscribe top-subscribe">
+    <div class="inner">
+      <p>
+        <strong>Creative Hudson Valley</strong> is a celebration of the Hudson Valley's incredible
+        <span>creative energy and the people who choose to live and work here.</span>
+      </p>
+    </div>
+  </div>
+<?php endif; ?>
+
+<div class="inner posts">
+  <?php if (is_paged()) : ?>
+    <h2>Page <?php echo get_query_var('paged'); ?></h2>
+  <?php endif; ?>
+  <div class="cards">
+    <?php
+      $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
+      $args = array(
+        'post__not_in' => array($sticky[0]),
+        'paged' => $paged
+      );
+      $query = new WP_Query( $args );
+
+      while ( $query->have_posts() ) {
+        $query->the_post();
+        get_template_part('includes/post-card');
+      }
+    ?>
+  </div>
+  <div class="pagination">
+    <?php posts_nav_link('/', '← Newer', 'Older →'); ?>
   </div>
 </div>
 
-<div class="inner posts">
-  <?php
-    $args = array( 'post__not_in' => array($sticky[0]) );
-    $query = new WP_Query( $args );
 
-    while ( $query->have_posts() ) {
-      $query->the_post();
-      get_template_part('includes/post-card');
-    }
-  ?>
-
-  <?php if ($query->found_posts % 3 != 0) : ?>
-    <div class="post-card post-card--blank">
-      <div>
-        More interviews are coming soon.<br />
-        <a href="<?php echo site_url(); ?>/suggest-an-interview/" class="post-card--blank__link">Suggest an interview</a>
-      </div>
-    </div>
-  <?php endif; ?>
-</div>
 
 <?php get_template_part('includes/subscribe'); ?>
 
