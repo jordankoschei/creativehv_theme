@@ -32,9 +32,43 @@
   padding: 0 .5rem;
 
   span {
-    color: $darkestGray;
+    color: $darkerGray;
+  }
+
+  a {
+    color: $darkerGray;
     display: inline-block;
     font-size: .875em;
+    text-decoration: none;
+    position: relative;
+    transition: color $transition;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-bottom: 1px solid transparentize($gray, .5);
+      transition: border $transition;
+    }
+
+    &.icon::after {
+      left: 25px;
+    }
+
+    &:hover,
+    &:focus {
+      color: $primary;
+
+      &::after {
+        border-color: $primary;
+      }
+    }
+  }
+
+  span,
+  & > a {
     margin-right: .75rem;
   }
 }

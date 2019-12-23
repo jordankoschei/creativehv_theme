@@ -51,19 +51,20 @@ hr {
   background-repeat: no-repeat;
   padding-left: 25px;
 
-  &-location    { background-image: url('../img/location.svg'); }
-  &-county      { background-image: url('../img/county.svg'); }
-  &-date        { background-image: url('../img/date.svg'); }
-  &-art         { background-image: url('../img/art.svg'); }
-  &-design      { background-image: url('../img/design.svg'); }
-  &-tech        { background-image: url('../img/tech.svg'); }
-  &-community   { background-image: url('../img/community.svg'); }
-  &-film        { background-image: url('../img/film.svg'); }
-  &-art         { background-image: url('../img/art.svg'); }
-  &-music       { background-image: url('../img/music.svg'); }
-  &-food-drink  { background-image: url('../img/food-drink.svg'); }
-  &-photography { background-image: url('../img/photography.svg'); }
-  &-writing     { background-image: url('../img/writing.svg'); }
+  &-location        { background-image: url('../img/location.svg'); }
+  &-county          { background-image: url('../img/county.svg'); }
+  &-date            { background-image: url('../img/date.svg'); }
+  &-visual-arts     { background-image: url('../img/visual-arts.svg'); }
+  &-performing-arts { background-image: url('../img/performing-arts.svg'); }
+  &-design          { background-image: url('../img/design.svg'); }
+  &-tech            { background-image: url('../img/tech.svg'); }
+  &-community       { background-image: url('../img/community.svg'); }
+  &-film            { background-image: url('../img/film.svg'); }
+  &-art             { background-image: url('../img/art.svg'); }
+  &-music           { background-image: url('../img/music.svg'); }
+  &-food-drink      { background-image: url('../img/food-drink.svg'); }
+  &-photography     { background-image: url('../img/photography.svg'); }
+  &-writing         { background-image: url('../img/writing.svg'); }
 }
 
 .sr-only {

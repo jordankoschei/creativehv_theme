@@ -9,7 +9,7 @@
 // Add CSS (and JS, eventually, maybe) to <head>
 // Also includes the cache-busting via gulpfile
   function add_theme_scripts() {
-    $cache_buster = 1575152012417;
+    $cache_buster = 1577032197714;
     wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/app.min.css', false, $cache_buster, 'all');
   }
   add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
@@ -39,30 +39,6 @@
       "show_in_quick_edit" => false,
       ];
     register_taxonomy( "location", [ "post" ], $args );
-
-    $labels = [
-      "name" => __( "Counties", "custom-post-type-ui" ),
-      "singular_name" => __( "County", "custom-post-type-ui" ),
-    ];
-
-    $args = [
-      "label" => __( "Counties", "custom-post-type-ui" ),
-      "labels" => $labels,
-      "public" => true,
-      "publicly_queryable" => true,
-      "hierarchical" => true,
-      "show_ui" => true,
-      "show_in_menu" => true,
-      "show_in_nav_menus" => true,
-      "query_var" => true,
-      "rewrite" => [ 'slug' => 'county', 'with_front' => true, ],
-      "show_admin_column" => false,
-      "show_in_rest" => true,
-      "rest_base" => "county",
-      "rest_controller_class" => "WP_REST_Terms_Controller",
-      "show_in_quick_edit" => false,
-      ];
-    register_taxonomy( "county", [ "post" ], $args );
   }
   add_action( 'init', 'cptui_register_my_taxes' );
 

@@ -16,11 +16,15 @@
     <header class="post-header">
       <h1 class="post-title"><?php the_title(); ?></h1>
       <div class="post-meta">
-        <?php if (get_the_terms(get_the_ID(), 'location') && get_the_terms(get_the_ID(), 'county')) : ?>
-          <span class="icon icon-location"><?php echo array_pop(get_the_terms(get_the_ID(), 'location'))->name; ?> (<?php echo array_pop(get_the_terms(get_the_ID(), 'county'))->name; ?> County)</span>
+        <?php
+          $location = array_pop(get_the_terms(get_the_ID(), 'location'));
+          $county = ($location->parent == 0) ? $location : get_term($location->parent, 'location');
+        ?>
+        <?php if ($location && $county) : ?>
+          <span class="icon icon-location"><a href="<?php echo get_term_link($location->term_id, 'location'); ?>"><?php echo $location->name; ?></a> (<a href="<?php echo get_term_link($county->term_id, 'location'); ?>"><?php echo $county->name; ?></a>)</span>
         <?php endif; ?>
         <?php foreach (get_the_category() as $cat) : ?>
-          <span class="icon icon-<?php echo $cat->slug; ?>"><?php echo $cat->name; ?></span>
+          <a href="<?php echo get_category_link($cat); ?>" class="icon icon-<?php echo $cat->slug; ?>"><?php echo $cat->name; ?></a>
         <?php endforeach; ?>
       </div>
       <p class="post-subtitle" aria-hidden="true"><?php the_field('description'); ?></p>
