@@ -6,10 +6,31 @@
 // ----------------------------------------------------------------------------------------------//
 // ----------------------------------------------------------------------------------------------//
 
+function interview_categories($linked = false) {
+  $cats = get_the_category();
+
+  if (function_exists('get_field')) {
+    $primary_cat = get_field('primary_category');
+    $val = array_search($primary_cat->term_id, wp_list_pluck($cats, 'term_id'));
+    if ($val) {
+      unset($cats[$val]);
+      array_unshift($cats, $primary_cat);
+    }
+  }
+
+  foreach ($cats as $cat) {
+    if ($linked) {
+      echo "<a href=".get_category_link($cat)." class='icon icon-".$cat->slug."'>".$cat->name."</a>";
+    } else {
+      echo "<span class='icon icon-".$cat->slug."'>".$cat->name."</span>";
+    }
+  }
+}
+
 // Add CSS (and JS, eventually, maybe) to <head>
 // Also includes the cache-busting via gulpfile
   function add_theme_scripts() {
-    $cache_buster = 1577032197714;
+    $cache_buster = 1577418765181;
     wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/app.min.css', false, $cache_buster, 'all');
   }
   add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );

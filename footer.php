@@ -1,5 +1,5 @@
   <footer class="footer">
-    <div class="inner">
+    <div class="inner inner--narrow">
       <nav class="menu-footer-menu-container">
         <?php wp_nav_menu(array('menu' => 'Footer Menu', 'container' => '')); ?>
         <ul class="socials">

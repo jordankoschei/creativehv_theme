@@ -9,9 +9,14 @@
       <p><?php the_field('description'); ?></p>
     </div>
     <div class="post-card-categories">
-      <?php foreach (get_the_category() as $cat) : ?>
-        <span class="icon icon-<?php echo $cat->slug; ?>"><?php echo $cat->name; ?></span>
-      <?php endforeach; ?>
+        <?php
+          $location = array_pop(get_the_terms(get_the_ID(), 'location'));
+          $county = ($location->parent == 0) ? $location : get_term($location->parent, 'location');
+        ?>
+        <?php if ($location && $county) : ?>
+          <span class="icon icon-location"><a href="<?php echo get_term_link($location->term_id, 'location'); ?>"><?php echo $location->name; ?></a> (<a href="<?php echo get_term_link($county->term_id, 'location'); ?>"><?php echo $county->name; ?></a>)</span>
+        <?php endif; ?>
+      <?php interview_categories(); ?>
     </div>
   </a>
 </article>

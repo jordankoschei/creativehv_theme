@@ -1,176 +1,110 @@
 .hero {
-  margin-bottom: 2rem;
-
-  a {
-    text-decoration: none;
-    color: $black;
-
-    &:hover,
-    &:focus {
-      .hero-content {
-        transform: scale(1.01);
-      }
-
-      .hero-content-frame {
-        background-position: calc(100% - .75rem) calc(100% - 1rem);
-      }
-    }
-  }
-}
-
-.hero-img {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: inline-block;
   margin-left: -1rem;
   margin-right: -1rem;
-  vertical-align: middle;
   width: calc(100% + 2rem);
 
-  &::before {
-    content: '';
-    display: block;
-    padding-bottom: 50%;
+  img {
+    height: auto;
+    width: 100%;
+  }
+
+  a {
+    color: $darkestGray;
+    text-decoration: none;
   }
 }
 
 .hero-content {
-  backface-visibility: hidden;
-  margin-top: -2rem;
-  position: relative;
-  transition: transform $transition;
-  z-index: 1;
-}
+  padding: 1rem;
 
-.hero-content-frame {
-  backface-visibility: hidden;
-  background-color: $white;
-  background-image: url('../img/arrow-right.svg');
-  background-position: calc(100% - 1rem) calc(100% - 1rem);
-  background-repeat: no-repeat;
-  background-size: 1rem;
-  box-shadow: 0 1px 0 $lightGray;
-  padding: 0 1rem 1rem;
-  transition: background $transition;
-}
+  h1 {
+    font-size: 1.25em;
+    line-height: 1.25;
+    margin: 0 0 .5rem;
 
-.hero-title {
-  backface-visibility: hidden;
-  background-color: $white;
-  display: inline-block;
-  font-size: 1.5rem;
-  line-height: 1;
-  margin: 0 .5rem;
-  padding: .5rem .5rem .25rem;
-}
+    &::after {
+      content: '';
+      width: 1em;
+      height: 1em;
+      margin-left: .125rem;
+      background-image: url('../img/arrow-right-gray.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 1em;
+      display: inline-block;
+      vertical-align: middle;
+      transition: transform $transition;
+    }
+  }
 
-.hero-subtitle {
-  backface-visibility: hidden;
-  font-size: 18px;
-  line-height: 1.25;
-  margin: 0;
-  padding: 0 1rem .75rem;
-}
-
-.hero-title,
-.hero-subtitle {
-  background-color: $white;
-}
-
-.hero-description {
-  backface-visibility: hidden;
-  font-size: 16px;
-  margin: 0 0 1rem;
-}
-
-.hero-categories {
-  backface-visibility: hidden;
-  color: $darkGray;
-  font-size: 14px;
-
-  .icon {
-    margin-right: .75rem;
-    padding-left: 24px;
+  p {
+    margin: 0 0 1rem;
   }
 }
 
-.hero-cta {
-  backface-visibility: hidden;
-  color: $primary;
+.hero-meta {
+  color: $darkGray;
+  font-size: .85rem;
 
-  &::after {
-    background-image: url('../img/arrow-right.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: .8em;
-    content: '';
-    display: inline-block;
-    height: 1em;
-    margin-left: .333em;
-    position: relative;
-    transition: transform $transition;
-    top: 3px;
-    width: 1em;
+  .icon {
+    background-size: 17px;
+    margin-right: .75rem;
+    padding-left: 22px;
   }
 }
 
 @include media('>=lg') {
   .hero {
-    margin-bottom: 4rem;
+    height: 70vh;
+    margin: 0;
+    overflow: hidden;
     position: relative;
+    width: 100%;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      transition: opacity $transition;
+    }
 
     a {
       &:hover,
       &:focus {
-        .hero-content-frame {
-          background-position: calc(100% - .75rem) calc(100% - .75rem);
+        img {
+          opacity: .9;
+        }
+
+        .hero-content h1::after {
+          transform: translateX(.125rem);
         }
       }
     }
   }
 
-  .hero-img {
-    margin-left: 0;
-    margin-right: 0;
-    width: 70%;
-  }
-
   .hero-content {
-    position: absolute;
-    bottom: 1rem;
-    right: 0;
-    width: 40%;
-  }
-
-  .hero-content-frame {
-    background-position: calc(100% - 1rem) calc(100% - .75rem);
-    padding: .75rem;
-  }
-
-  .hero-title {
-    margin: 0;
-    padding: .5rem .75rem .5rem;
-  }
-
-  .hero-subtitle {
-    margin-top: -.5rem;
-    padding: .5rem .75rem 0;
-  }
-
-  .hero-title,
-  .hero-subtitle {
-    margin-bottom: -2px;
-  }
-}
-
-@include media('>=xl') {
-  .hero-img {
-    width: 75%;
-  }
-
-  .hero-content {
+    background-color: $white;
     bottom: 2rem;
-    width: 35%;
+    font-size: .875rem;
+    left: 2rem;
+    max-width: 32rem;
+    position: absolute;
+    width: 50%;
+
+    &.bottom-right {
+      left: auto;
+      right: 2rem;
+    }
+
+    &.top-left {
+      bottom: auto;
+      top: 2rem;
+    }
+
+    &.top-right {
+      bottom: auto;
+      left: auto;
+      right: 2rem;
+      top: 2rem;
+    }
   }
 }

@@ -9,7 +9,7 @@
     </div>
   <?php endif; ?>
 
-  <div class="inner">
+  <div class="inner inner--narrow">
     <h1 class="simple-title"><?php the_title(); ?></h1>
     <?php the_content(); ?>
     <hr>
@@ -18,7 +18,7 @@
 
 <?php get_template_part('includes/subscribe'); ?>
 
-<div class="inner posts">
+<div class="inner inner--narrow posts">
   <div class="cards">
     <?php
       $args = array(

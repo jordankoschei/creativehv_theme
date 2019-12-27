@@ -3,7 +3,7 @@
 <?php the_post(); ?>
 
 <article class="post">
-  <div class="inner">
+  <div class="inner inner--narrow">
     <div class="post-hero">
       <?php
         if (has_post_thumbnail()) { the_post_thumbnail(); }
@@ -23,9 +23,7 @@
         <?php if ($location && $county) : ?>
           <span class="icon icon-location"><a href="<?php echo get_term_link($location->term_id, 'location'); ?>"><?php echo $location->name; ?></a> (<a href="<?php echo get_term_link($county->term_id, 'location'); ?>"><?php echo $county->name; ?></a>)</span>
         <?php endif; ?>
-        <?php foreach (get_the_category() as $cat) : ?>
-          <a href="<?php echo get_category_link($cat); ?>" class="icon icon-<?php echo $cat->slug; ?>"><?php echo $cat->name; ?></a>
-        <?php endforeach; ?>
+        <?php interview_categories(true); ?>
       </div>
       <p class="post-subtitle" aria-hidden="true"><?php the_field('description'); ?></p>
     </header>
@@ -56,7 +54,7 @@
 
 <?php get_template_part('includes/subscribe'); ?>
 
-<div class="inner posts">
+<div class="inner inner--narrow posts">
   <h2>Related interviews:</h2>
   <div class="cards">
     <?php

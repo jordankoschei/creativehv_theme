@@ -9,7 +9,7 @@ var rename       = require('gulp-rename');
 var replace      = require('gulp-replace');
 var gulpCopy     = require('gulp-copy');
 var colorize     = require('gulp-colorize-svgs');
-var server  = require('browser-sync').create();
+var server       = require('browser-sync').create();
 
 function scss(done) {
   gulp.src('_scss/app.scss')
@@ -98,7 +98,7 @@ function serve(done) {
 function watch() {
   gulp.watch('_scss/**/*.scss', scss);
   gulp.watch('_img/**/*', img);
-  gulp.watch('**/*.php').on('change', server.reload);
+  // gulp.watch('**/*.php').on('change', server.reload);
 }
 
 exports.default = gulp.series(serve, gulp.parallel(scss, img), watch);

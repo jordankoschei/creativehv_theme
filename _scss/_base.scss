@@ -20,8 +20,15 @@ body {
 .inner {
   margin: 0 auto;
   padding: 0 1rem;
-  max-width: 66rem;
   width: 100%;
+
+  &--narrow {
+    max-width: 66rem;
+  }
+
+  @include media('>=sm') {
+    padding: 0 2rem;
+  }
 }
 
 .flex {
@@ -50,6 +57,7 @@ hr {
   background-size: 20px;
   background-repeat: no-repeat;
   padding-left: 25px;
+  white-space: nowrap;
 
   &-location        { background-image: url('../img/location.svg'); }
   &-county          { background-image: url('../img/county.svg'); }
