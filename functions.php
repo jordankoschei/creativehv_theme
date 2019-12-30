@@ -6,6 +6,20 @@
 // ----------------------------------------------------------------------------------------------//
 // ----------------------------------------------------------------------------------------------//
 
+function final_arrow($text) {
+  $pieces = explode(' ', $text);
+  $last_word = array_pop($pieces);
+
+  echo implode(' ', $pieces) . ' <span class="last-arrow">' . $last_word . '</span>';
+}
+
+function prevent_orphans($text) {
+  $pieces = explode(' ', $text);
+  $last_word = array_pop($pieces);
+
+  echo implode(' ', $pieces) . '&nbsp;' . $last_word;
+}
+
 function interview_categories($linked = false) {
   $cats = get_the_category();
 
@@ -27,10 +41,28 @@ function interview_categories($linked = false) {
   }
 }
 
+function should_show_header_line() {
+  if ( is_single() ) {
+    return false;
+  }
+
+  if ( is_home() ) {
+    if ( is_paged() ) {
+      if ( ! get_query_var('paged') || get_query_var('paged') === 1 ) {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
+
+  return true;
+}
+
 // Add CSS (and JS, eventually, maybe) to <head>
 // Also includes the cache-busting via gulpfile
   function add_theme_scripts() {
-    $cache_buster = 1577418765181;
+    $cache_buster = 1577709037955;
     wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/app.min.css', false, $cache_buster, 'all');
   }
   add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );

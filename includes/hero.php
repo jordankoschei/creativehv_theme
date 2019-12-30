@@ -9,7 +9,7 @@
       <?php the_post_thumbnail(); ?>
 
       <div class="hero-content <?php the_field('hero_content_position'); ?>">
-        <h1><?php the_title(); ?> — <?php the_field('one-liner'); ?></h1>
+        <h1><?php the_title(); ?> — <?php final_arrow(get_field('one-liner')); ?></h1>
         <p><?php the_field('description'); ?></p>
         <div class="hero-meta">
           <?php if ($location && $county) : ?>

@@ -1,10 +1,13 @@
 .hero {
   margin-left: -1rem;
   margin-right: -1rem;
+  margin-bottom: 1rem;
+  position: relative;
   width: calc(100% + 2rem);
 
   img {
     height: auto;
+    vertical-align: middle;
     width: 100%;
   }
 
@@ -14,27 +17,38 @@
   }
 }
 
+.hero-caption {
+  // color: $white;
+  // position: absolute;
+  // left: 1rem;
+  // right: 1rem;
+  // bottom: 1rem;
+  // font-size: .825rem;
+  // line-height: 1;
+  // text-shadow: 0 0 12px transparentize(#000, .5);
+  font-size: .825rem;
+  color: $darkGray;
+  line-height: 1;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+  padding: 0 1rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  display: none;
+}
+
 .hero-content {
+  background-color: $white;
+  box-shadow: $depthLow;
   padding: 1rem;
 
   h1 {
     font-size: 1.25em;
     line-height: 1.25;
     margin: 0 0 .5rem;
-
-    &::after {
-      content: '';
-      width: 1em;
-      height: 1em;
-      margin-left: .125rem;
-      background-image: url('../img/arrow-right-gray.svg');
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 1em;
-      display: inline-block;
-      vertical-align: middle;
-      transition: transform $transition;
-    }
   }
 
   p {
@@ -53,13 +67,28 @@
   }
 }
 
+@include media('>=sm') {
+  .hero {
+    margin-left: -2rem;
+    margin-right: -2rem;
+    margin-bottom: 2rem;
+    width: calc(100% + 4rem);
+  }
+
+  .hero-content {
+    padding: 1rem 2rem;
+  }
+}
+
 @include media('>=lg') {
   .hero {
     height: 70vh;
-    margin: 0;
+    margin: 0 0 3rem;
     overflow: hidden;
-    position: relative;
     width: 100%;
+
+    &.right img { object-position: right; }
+    &.left img { object-position: left; }
 
     img {
       height: 100%;
@@ -74,7 +103,7 @@
           opacity: .9;
         }
 
-        .hero-content h1::after {
+        .last-arrow::after {
           transform: translateX(.125rem);
         }
       }
@@ -82,11 +111,11 @@
   }
 
   .hero-content {
-    background-color: $white;
     bottom: 2rem;
     font-size: .875rem;
     left: 2rem;
     max-width: 32rem;
+    padding: 1rem;
     position: absolute;
     width: 50%;
 

@@ -6,6 +6,28 @@
     flex-direction: column;
     justify-content: center;
   }
+
+  &.has-line .inner {
+    position: relative;
+
+    @include media('>=sm') {
+      margin-bottom: 2rem;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -1rem;
+      left: 1rem;
+      right: 1rem;
+      border-bottom: 2px solid $lightGray;
+
+      @include media('>=sm') {
+        left: 2rem;
+        right: 2rem;
+      }
+    }
+  }
 }
 
 .header-lockup {
@@ -36,6 +58,7 @@
   color: $darkGray;
   display: block;
   font-size: .85rem;
+  text-decoration: none;
 }
 
 .menu-header-menu-container {
@@ -123,7 +146,7 @@
 
     div {
       background-color: $white;
-      box-shadow: $depth;
+      box-shadow: $depthHigh;
       left: 50%;
       opacity: 0;
       position: absolute;
@@ -138,9 +161,9 @@
         content: '';
         position: absolute;
         top: -.5rem;
-        bottom: -1rem;
-        left: -1rem;
-        right: -1rem;
+        bottom: -.5rem;
+        left: -.5rem;
+        right: -.5rem;
         z-index: -1;
       }
 

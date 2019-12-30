@@ -1,43 +1,20 @@
 <?php get_header(); ?>
 
-<?php if (get_field('notice_active', 'option')) : ?>
-<div class="inner">
-  <div class="notice">
-    <?php the_field('notice_text', 'option'); ?> <a href="<?php the_field('notice_cta_url', 'option'); ?>" class="notice-cta"><?php the_field('notice_cta_text', 'option'); ?></a>
-  </div>
-</div>
-<?php endif; ?>
-
-<?php
-$title = '';
-
-if (is_category()) {
-  $title = single_term_title('', false) . ' Interviews';
-}
-
-if (is_tax('location')) {
-  $title = single_term_title('Interviews in ', false);
-
-  $location = get_queried_object();
-  if ($location->parent !== 0) {
-    $county = get_term($location->parent, 'location');
-    $title .= ' (<a href="' . get_term_link($county->term_id, 'location') . '">' . $county->name . '</a>)';
-  }
-}
-
-if (is_paged()) {
-  $title .= ' — Page ' . get_query_var('paged');
-}
-?>
-
-<div class="inner posts">
-  <h2><?php echo $title; ?></h2>
+<div class="inner inner--narrow posts">
+  <?php get_template_part('includes/posts-nav'); ?>
   <div class="cards">
     <?php
       if (have_posts() ) {
         while ( have_posts() ) {
           the_post();
           get_template_part('includes/post-card');
+        }
+
+        if ( $wp_query->found_posts % 3 == 2 ) {
+          echo '<div class="card-placeholder"></div>';
+        }
+        if ( $wp_query->found_posts % 3 == 1 ) {
+          echo '<div class="card-placeholder"></div><div class="card-placeholder"></div>';
         }
       }
     ?>

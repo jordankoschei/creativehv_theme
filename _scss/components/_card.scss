@@ -1,0 +1,163 @@
+.last-arrow {
+  white-space: nowrap;
+
+  &::after {
+    content: '';
+    width: 1em;
+    height: 1em;
+    margin-left: .125rem;
+    background-image: url('../img/arrow-right-gray.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1em;
+    display: inline-block;
+    position: relative;
+    top: -1px;
+    vertical-align: middle;
+    transition: transform $transition;
+  }
+}
+
+.post-card {
+  background-color: $white;
+  background-image: url('../img/arrow-right.svg');
+  background-repeat: no-repeat;
+  background-position: calc(100% - 1rem) calc(100% - 1rem);
+  background-size: 1rem;
+  box-shadow: $depthLow;
+  color: $darkestGray;
+  display: inline-block;
+  margin-bottom: 2rem;
+  text-align: left;
+  text-decoration: none;
+  transition: background $transition;
+  width: 100%;
+
+  &:hover,
+  &:focus {
+    background-position: calc(100% - .875rem) calc(100% - 1rem);
+  }
+}
+
+.post-card-img {
+  height: 10rem;
+  position: relative;
+  width: 100%;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.post-card-location {
+  position: absolute;
+  left: .5rem;
+  top: .5rem;
+  font-size: .75rem;
+  line-height: 1;
+  padding: .25rem;
+  background-color: transparentize($white, .125);
+  box-shadow: $depthLow;
+  font-weight: 500;
+  color: $darkestGray;
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.post-card-content {
+  padding: 0 1rem 1rem;
+  margin-top: -2rem;
+}
+
+.post-card-title {
+  background-color: $white;
+  color: $black;
+  display: inline-block;
+  font-size: 1.25rem;
+  line-height: 1;
+  margin: 0 -.5rem;
+  padding: .5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.post-card-subtitle {
+  font-family: $serif;
+  font-size: 1.125rem;
+  margin: 0;
+}
+
+.post-card-categories {
+  font-size: 14px;
+  color: $darkGray;
+  padding: 0 3rem .75rem 1rem;
+
+  .icon {
+    display: inline-block;
+    margin-bottom: .25rem;
+    margin-right: .75rem;
+    padding-left: 24px;
+  }
+}
+
+.card-placeholder { display: none; }
+
+@include media('>=sm') {
+  .post-card-img {
+    height: 12rem;
+  }
+}
+
+@include media('>=540px') {
+  .post-card,
+  .card-placeholder {
+    margin-bottom: 1.5rem;
+    margin-left: .75rem;
+    margin-right: .75rem;
+    width: calc(50% - 1.5rem)
+  }
+
+  .card-placeholder { display: inline-block; }
+
+  .post-card-img {
+    height: 12rem;
+
+    img {
+      transition: opacity $transition;
+    }
+  }
+
+  .post-card-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .post-card-categories {
+    margin-top: auto;
+  }
+
+  .post-card {
+    display: flex;
+    flex-direction: column;
+
+    &:hover,
+    &:focus {
+      .post-card-img img {
+        opacity: .9;
+      }
+    }
+  }
+}
+
+@include media('>=lg') {
+  .post-card,
+  .card-placeholder {
+    width: calc(33.333% - 1.5rem)
+  }
+
+  .post-card-content {
+    padding-bottom: 3rem;
+  }
+}

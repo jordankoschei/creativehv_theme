@@ -19,6 +19,7 @@ body {
 
 .inner {
   margin: 0 auto;
+  max-width: 136rem;
   padding: 0 1rem;
   width: 100%;
 
@@ -28,6 +29,12 @@ body {
 
   @include media('>=sm') {
     padding: 0 2rem;
+  }
+
+  @include media('>=1600px') {
+    &--narrow {
+      max-width: 80rem;
+    }
   }
 }
 

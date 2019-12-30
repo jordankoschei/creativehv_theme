@@ -1,7 +1,9 @@
 input[type="text"],
 input[type="email"],
 input[type="url"],
+select,
 textarea {
+  appearance: none;
   background-color: $white;
   border: 1px solid $lightishGray;
   font-family: $sans;
@@ -19,6 +21,15 @@ textarea {
     box-shadow: none;
     outline: none;
   }
+}
+
+select {
+  background-image: url('../img/dropdown.svg');
+  background-position: calc(100% - .5rem) center;
+  background-repeat: no-repeat;
+  background-size: 1em;
+  cursor: pointer;
+  padding-right: calc(1rem + 1em);
 }
 
 input[type="submit"],

@@ -25,7 +25,7 @@
 
 <body <?php body_class(); ?>>
 
-<header class="header">
+<header class="header <?php if (should_show_header_line()) { echo 'has-line'; } ?>">
   <div class="inner inner--narrow flex">
     <div class="header-lockup">
       <a href="<?php echo site_url(); ?>" class="logo">
@@ -36,9 +36,9 @@
         <?php endif; ?>
       </a>
 
-      <span class="header-description no-md">
-        Interviews with members of the Hudson Valley creative community.
-      </span>
+      <a href="<?php echo site_url(); ?>" class="header-description no-md">
+        Interviews with members of the Hudson Valley creative community
+      </a>
     </div>
 
     <nav class="menu-header-menu-container">
@@ -52,9 +52,9 @@
           <span>Follow</span>
           <div>
             <ul>
-              <li><a href="http://eepurl.com/gwXxQP" class="newsletter" target="_blank"><?php get_template_part('includes/icons/newsletter'); ?> Newsletter</a></li>
-              <li><a href="https://www.instagram.com/creativehv/" class="instagram" target="_blank"><?php get_template_part('includes/icons/instagram'); ?> Instagram</a></li>
-              <li><a href="https://twitter.com/creativehv/" class="twitter" target="_blank"><?php get_template_part('includes/icons/twitter'); ?> Twitter</a></li>
+              <li><a href="http://eepurl.com/gwXxQP" class="newsletter" target="_blank">Newsletter</a></li>
+              <li><a href="https://www.instagram.com/creativehv/" class="instagram" target="_blank">Instagram</a></li>
+              <li><a href="https://twitter.com/creativehv/" class="twitter" target="_blank">Twitter</a></li>
             </ul>
             <ul>
               <li><a href="" class="facebook" target="_blank" title="Creative Hudson Valley on Facebook"><?php get_template_part('includes/icons/facebook'); ?></a></li>

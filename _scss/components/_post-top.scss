@@ -1,0 +1,155 @@
+.post-top-content {
+  background-color: $black;
+  margin: -1rem -1rem 0;
+  padding: 1rem;
+  text-align: center;
+
+  h1 {
+    color: $white;
+    margin: 1rem 0 0;
+  }
+
+  p {
+    color: $white;
+    font-size: 1.125rem;
+    max-width: 32rem;
+    margin: 2rem auto 1rem;
+  }
+}
+
+.post-meta {
+  span {
+    color: $gray;
+    display: block;
+    font-size: .825rem;
+  }
+}
+
+.post-categories {
+  span {
+    color: $gray;
+    font-size: .875rem;
+  }
+
+  a {
+    color: $gray;
+    display: inline-block;
+    font-size: .875rem;
+    text-decoration: none;
+    position: relative;
+    transition: color $transition;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-bottom: 1px solid transparentize($gray, .5);
+      transition: border $transition;
+    }
+
+    &.icon::after {
+      left: 25px;
+    }
+
+    &:hover,
+    &:focus {
+      color: $white;
+
+      &::after {
+        border-color: $white;
+      }
+    }
+  }
+
+  span,
+  & > a {
+    margin-right: .75rem;
+  }
+
+  .icon {
+    background-image: url('../img/tag-white.svg');
+
+    &-location        { background-image: url('../img/location-white.svg'); }
+    &-county          { background-image: url('../img/county-white.svg'); }
+    &-date            { background-image: url('../img/date-white.svg'); }
+    &-visual-arts     { background-image: url('../img/visual-arts-white.svg'); }
+    &-performing-arts { background-image: url('../img/performing-arts-white.svg'); }
+    &-design          { background-image: url('../img/design-white.svg'); }
+    &-tech            { background-image: url('../img/tech-white.svg'); }
+    &-community       { background-image: url('../img/community-white.svg'); }
+    &-film            { background-image: url('../img/film-white.svg'); }
+    &-art             { background-image: url('../img/art-white.svg'); }
+    &-music           { background-image: url('../img/music-white.svg'); }
+    &-food-drink      { background-image: url('../img/food-drink-white.svg'); }
+    &-photography     { background-image: url('../img/photography-white.svg'); }
+    &-writing         { background-image: url('../img/writing-white.svg'); }
+  }
+}
+
+.post-location {
+  margin-bottom: .5rem;
+}
+
+@include media('>=sm') {
+  .post-top-content {
+    margin: -2rem -2rem 0;
+  }
+}
+
+@include media('>=md') {
+  .post-location {
+    margin-bottom: 0;
+    display: inline-block;
+  }
+}
+
+@include media('>=lg') {
+  .post {
+    .hero {
+      height: 60vh;
+    }
+  }
+
+  .post-top-content {
+    margin: -2rem 0 0;
+  }
+}
+
+@include media('>=1440px') {
+  .post-top {
+    display: flex;
+    height: 70vh;
+    margin-bottom: 2rem;
+    min-height: 28rem;
+  }
+
+  .post .hero {
+    height: 100%;
+    margin-bottom: 0;
+  }
+
+  .post-top-content {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 1rem;
+
+    h1 {
+      font-size: 3.5rem;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.25rem;
+    }
+  }
+
+  .post-location {
+    display: block;
+    margin-bottom: .25rem;
+  }
+}

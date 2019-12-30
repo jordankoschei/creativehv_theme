@@ -8,14 +8,16 @@
 
 @import 'objects/social';
 
+@import 'components/brands';
 @import 'components/header';
 @import 'components/footer';
 @import 'components/hero';
-@import 'components/post-card';
-@import 'components/post-blank';
+@import 'components/cards-layout';
+@import 'components/card';
 @import 'components/subscribe';
-@import 'components/post';
-@import 'components/brands';
+@import 'components/post-top';
+@import 'components/post-sidebar';
+@import 'components/content';
 @import 'components/simple';
 @import 'components/notice';
 @import 'components/pagination';
