@@ -57,10 +57,10 @@
               <li><a href="https://twitter.com/creativehv/" class="twitter" target="_blank">Twitter</a></li>
             </ul>
             <ul>
-              <li><a href="" class="facebook" target="_blank" title="Creative Hudson Valley on Facebook"><?php get_template_part('includes/icons/facebook'); ?></a></li>
-              <li><a href="" class="linkedin" target="_blank" title="Creative Hudson Valley on LinkedIn"><?php get_template_part('includes/icons/linkedin'); ?></a></li>
-              <li><a href="" class="pinterest" target="_blank" title="Creative Hudson Valley on Pinterest"><?php get_template_part('includes/icons/pinterest'); ?></a></li>
-              <li><a href="" class="rss" target="_blank" title="RSS"><?php get_template_part('includes/icons/rss'); ?></a></li>
+              <li><a href="https://www.facebook.com/creativehv" class="facebook" target="_blank" title="Creative Hudson Valley on Facebook"><?php get_template_part('includes/icons/facebook'); ?></a></li>
+              <li><a href="https://www.linkedin.com/company/creativehv/" class="linkedin" target="_blank" title="Creative Hudson Valley on LinkedIn"><?php get_template_part('includes/icons/linkedin'); ?></a></li>
+              <li><a href="https://www.pinterest.com/creativehv/" class="pinterest" target="_blank" title="Creative Hudson Valley on Pinterest"><?php get_template_part('includes/icons/pinterest'); ?></a></li>
+              <li><a href="<?php bloginfo('url'); ?>/?feed=rss2" class="rss" target="_blank" title="RSS"><?php get_template_part('includes/icons/rss'); ?></a></li>
             </ul>
           </div>
         </li>
