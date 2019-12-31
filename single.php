@@ -57,6 +57,17 @@ $email     = 'mailto:?subject=' . get_the_title() . '%20on%20Creative%20Hudson%2
         <?php if (get_field('edited')) : ?>
           <span class="post-edited">This interview has been edited for length&nbsp;and&nbsp;clarity.</span>
         <?php endif; ?>
+
+        <div class="post-share">
+          <h3>Share this post:</h3>
+          <ul>
+            <li><a href="<?php echo $twitter; ?>" target="_blank" class="twitter" title="Twitter"><?php get_template_part('includes/icons/twitter'); ?></a></li>
+            <li><a href="<?php echo $facebook; ?>" target="_blank" class="facebook" title="Facebook"><?php get_template_part('includes/icons/facebook'); ?></a></li>
+            <li><a href="<?php echo $linkedin; ?>" target="_blank" class="linkedin" title="LinkedIn"><?php get_template_part('includes/icons/linkedin'); ?></a></li>
+            <li><a href="<?php echo $pinterest; ?>" target="_blank" class="pinterest" title="Pinterest"><?php get_template_part('includes/icons/pinterest'); ?></a></li>
+            <li><a href="<?php echo $email; ?>" target="_blank" class="email" title="Email"><?php get_template_part('includes/icons/email'); ?></a></li>
+          </ul>
+        </div>
       </main>
       <aside class="post-sidebar">
         <ul class="post-links">

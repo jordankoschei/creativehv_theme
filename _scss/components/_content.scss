@@ -19,6 +19,28 @@
   p:nth-child(2) {
     margin-top: 0;
   }
+
+  .post-share {
+    display: none;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    position: relative;
+
+    &::before {
+      content: '';
+      border-top: 1px solid $gray;
+      top: 0;
+      left: 0;
+      width: 3rem;
+      position: absolute;
+    }
+
+    h3 {
+      font-family: $sans;
+      font-size: 1rem;
+      margin-top: 0;
+    }
+  }
 }
 
 .post-edited {
@@ -137,6 +159,10 @@
     font-size: 19px;
     margin-left: 2rem;
     order: 1;
+
+    .post-share {
+      display: block;
+    }
   }
 
   .post-sidebar {
