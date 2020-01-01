@@ -12,40 +12,42 @@ $email     = 'mailto:?subject=' . get_the_title() . '%20on%20Creative%20Hudson%2
 
 <article class="post">
   <div class="inner">
-    <div class="post-top">
-      <div class="hero <?php the_field('hero_position'); ?>">
-        <?php
-        if (has_post_thumbnail()) {
-          the_post_thumbnail();
-        } else {
-          echo '<img src="'.bloginfo('template_directory').'/assets/img/hero.jpg" alt="The Hudson Valley">';
-        }
-        ?>
-      </div>
-      <div class="post-top-content">
-        <div class="post-meta">
-          <span>Interview by Jordan Koschei</span>
-          <span>Published on <?php the_date(); ?></span>
+    <?php if ( !post_password_required() ) : ?>
+      <div class="post-top">
+        <div class="hero <?php the_field('hero_position'); ?>">
+          <?php
+          if (has_post_thumbnail()) {
+            the_post_thumbnail();
+          } else {
+            echo '<img src="'.get_bloginfo('template_directory').'/assets/img/hero.jpg" alt="The Hudson Valley">';
+          }
+          ?>
         </div>
-
-        <div>
-          <h1><?php the_title(); ?></h1>
-          <div class="post-categories">
-            <?php
-              $location = array_pop(get_the_terms(get_the_ID(), 'location'));
-              $county = ($location->parent == 0) ? $location : get_term($location->parent, 'location');
-            ?>
-            <?php if ($location && $county) : ?>
-              <div class="post-location">
-                <span class="icon icon-location"><a href="<?php echo get_term_link($location->term_id, 'location'); ?>"><?php echo $location->name; ?></a> (<a href="<?php echo get_term_link($county->term_id, 'location'); ?>"><?php echo $county->name; ?></a>)</span>
-            </div>
-            <?php endif; ?>
-            <?php interview_categories(true); ?>
+        <div class="post-top-content">
+          <div class="post-meta">
+            <span>Interview by Jordan Koschei</span>
+            <span>Published on <?php the_date(); ?></span>
           </div>
-        </div>
 
-        <p aria-hidden="true"><?php prevent_orphans(get_field('description')); ?></p>
-      </div>
+          <div>
+            <h1><?php the_title(); ?></h1>
+            <div class="post-categories">
+              <?php
+                $location = array_pop(get_the_terms(get_the_ID(), 'location'));
+                $county = ($location->parent == 0) ? $location : get_term($location->parent, 'location');
+              ?>
+              <?php if ($location && $county) : ?>
+                <div class="post-location">
+                  <span class="icon icon-location"><a href="<?php echo get_term_link($location->term_id, 'location'); ?>"><?php echo $location->name; ?></a> (<a href="<?php echo get_term_link($county->term_id, 'location'); ?>"><?php echo $county->name; ?></a>)</span>
+              </div>
+              <?php endif; ?>
+              <?php interview_categories(true); ?>
+            </div>
+          </div>
+
+          <p aria-hidden="true"><?php prevent_orphans(get_field('description')); ?></p>
+        </div>
+      <?php endif; ?>
     </div>
   </div>
 
@@ -70,27 +72,29 @@ $email     = 'mailto:?subject=' . get_the_title() . '%20on%20Creative%20Hudson%2
         </div>
       </main>
       <aside class="post-sidebar">
-        <ul class="post-links">
-          <?php while ( have_rows('links') ) : the_row(); ?>
-            <li><a href="<?php the_sub_field('url'); ?>" class="link-<?php the_sub_field('type'); ?>" target="_blank"><?php the_sub_field('name'); ?></a></li>
-          <?php endwhile; ?>
-        </ul>
-
-        <div class="post-nav">
-          <?php previous_post_link('<span>Previously: %link</span>'); ?>
-          <?php next_post_link('<span>Next up: %link</span>'); ?>
-        </div>
-
-        <div class="post-share">
-          <h3>Share this post:</h3>
-          <ul>
-            <li><a href="<?php echo $twitter; ?>" target="_blank" class="twitter" title="Twitter"><?php get_template_part('includes/icons/twitter'); ?></a></li>
-            <li><a href="<?php echo $facebook; ?>" target="_blank" class="facebook" title="Facebook"><?php get_template_part('includes/icons/facebook'); ?></a></li>
-            <li><a href="<?php echo $linkedin; ?>" target="_blank" class="linkedin" title="LinkedIn"><?php get_template_part('includes/icons/linkedin'); ?></a></li>
-            <li><a href="<?php echo $pinterest; ?>" target="_blank" class="pinterest" title="Pinterest"><?php get_template_part('includes/icons/pinterest'); ?></a></li>
-            <li><a href="<?php echo $email; ?>" target="_blank" class="email" title="Email"><?php get_template_part('includes/icons/email'); ?></a></li>
+        <?php if ( !post_password_required() ) : ?>
+          <ul class="post-links">
+            <?php while ( have_rows('links') ) : the_row(); ?>
+              <li><a href="<?php the_sub_field('url'); ?>" class="link-<?php the_sub_field('type'); ?>" target="_blank"><?php the_sub_field('name'); ?></a></li>
+            <?php endwhile; ?>
           </ul>
-        </div>
+
+          <div class="post-nav">
+            <?php previous_post_link('<span>Previously: %link</span>'); ?>
+            <?php next_post_link('<span>Next up: %link</span>'); ?>
+          </div>
+
+          <div class="post-share">
+            <h3>Share this post:</h3>
+            <ul>
+              <li><a href="<?php echo $twitter; ?>" target="_blank" class="twitter" title="Twitter"><?php get_template_part('includes/icons/twitter'); ?></a></li>
+              <li><a href="<?php echo $facebook; ?>" target="_blank" class="facebook" title="Facebook"><?php get_template_part('includes/icons/facebook'); ?></a></li>
+              <li><a href="<?php echo $linkedin; ?>" target="_blank" class="linkedin" title="LinkedIn"><?php get_template_part('includes/icons/linkedin'); ?></a></li>
+              <li><a href="<?php echo $pinterest; ?>" target="_blank" class="pinterest" title="Pinterest"><?php get_template_part('includes/icons/pinterest'); ?></a></li>
+              <li><a href="<?php echo $email; ?>" target="_blank" class="email" title="Email"><?php get_template_part('includes/icons/email'); ?></a></li>
+            </ul>
+          </div>
+        <?php endif; ?>
       </aside>
     </div>
   </div>
@@ -105,7 +109,8 @@ $email     = 'mailto:?subject=' . get_the_title() . '%20on%20Creative%20Hudson%2
       $args = array(
         'posts_per_page' => 3,
         'post__not_in' => array(get_the_ID()),
-        'category__in' => wp_get_post_categories(get_the_ID(), 'ids')
+        'category__in' => wp_get_post_categories(get_the_ID(), 'ids'),
+        'has_password' => false
       );
       $related = new WP_Query( $args );
 
@@ -117,6 +122,7 @@ $email     = 'mailto:?subject=' . get_the_title() . '%20on%20Creative%20Hudson%2
       if ($related->post_count < 3) {
         $args = array(
           'posts_per_page' => 3 - $related->post_count,
+          'has_password' => false,
           'post__not_in' => array(
             array_merge([get_the_ID()], wp_list_pluck($related->posts, 'ID'))
           )

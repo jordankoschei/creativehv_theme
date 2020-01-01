@@ -25,7 +25,8 @@ $query = new WP_Query( 'p=' . $sticky[0] );
       $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
       $args = array(
         'post__not_in' => array($sticky[0]),
-        'paged' => $paged
+        'paged' => $paged,
+        'has_password' => false
       );
       $query = new WP_Query( $args );
 
