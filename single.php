@@ -14,7 +14,7 @@ $email     = 'mailto:?subject=' . get_the_title() . '%20on%20Creative%20Hudson%2
   <div class="inner">
     <?php if ( !post_password_required() ) : ?>
       <div class="post-top">
-        <div class="hero <?php the_field('hero_position'); ?>">
+        <div class="hero <?php the_field('hero_x_position'); ?> <?php the_field('hero_y_position'); ?>">
           <?php
           if (has_post_thumbnail()) {
             the_post_thumbnail();
@@ -26,6 +26,9 @@ $email     = 'mailto:?subject=' . get_the_title() . '%20on%20Creative%20Hudson%2
         <div class="post-top-content">
           <div class="post-meta">
             <span>Interview by Jordan Koschei</span>
+            <?php if (get_field('hero_photo_attribution')) : ?>
+              <span><?php the_field('hero_photo_attribution'); ?></span>
+            <?php endif; ?>
             <span>Published on <?php the_date(); ?></span>
           </div>
 

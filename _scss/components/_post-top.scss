@@ -138,18 +138,30 @@
     margin: 0 1rem;
 
     h1 {
-      font-size: 3.5rem;
+      font-size: 2.5rem;
       line-height: 1;
       margin-bottom: 1rem;
     }
 
     p {
-      font-size: 1.25rem;
+      font-size: 1.125rem;
     }
   }
 
   .post-location {
     display: block;
     margin-bottom: .25rem;
+  }
+}
+
+@include media('>=1600px') {
+  .post-top-content {
+    h1 {
+      font-size: 3.5rem;
+    }
+
+    p {
+      font-size: 1.25rem;
+    }
   }
 }

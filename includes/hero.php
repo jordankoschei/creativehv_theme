@@ -4,7 +4,7 @@
 ?>
 
 <div class="inner">
-  <article class="hero">
+  <article class="hero <?php the_field('hero_x_position'); ?> <?php the_field('hero_y_position'); ?>">
     <a href="<?php the_permalink(); ?>">
       <?php the_post_thumbnail(); ?>
 
