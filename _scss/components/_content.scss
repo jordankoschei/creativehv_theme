@@ -67,6 +67,8 @@
 .wp-block-embed figcaption,
 .wp-block-gallery figcaption {
   color: $darkGray;
+  display: inline-block;
+  width: 100%;
   font-size: .875em;
   padding: 0 1rem;
   text-align: center;
