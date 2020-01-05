@@ -136,6 +136,10 @@
   p.sr-only + & {
     margin-top: 0 !important;
   }
+
+  & + h2 {
+    margin-top: 2rem;
+  }
 }
 
 @include media('>=sm') {
