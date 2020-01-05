@@ -57,13 +57,15 @@
 }
 
 .wp-block-image,
-.wp-block-embed {
+.wp-block-embed,
+.wp-block-gallery {
   margin-left: 0;
   margin-right: 0;
 }
 
 .wp-block-image figcaption,
-.wp-block-embed figcaption {
+.wp-block-embed figcaption,
+.wp-block-gallery figcaption {
   color: $darkGray;
   font-size: .875em;
   padding: 0 1rem;
@@ -120,12 +122,14 @@
 
 .wp-block-image,
 .wp-block-embed,
+.wp-block-gallery,
 .special {
   margin-top: 2rem;
   margin-bottom: 2rem;
 
   & + .wp-block-image,
   & + .wp-block-embed,
+  & + .wp-block-gallery,
   & + .special,
   p.sr-only + & {
     margin-top: 0 !important;
@@ -192,7 +196,8 @@
   }
 
   .wp-block-image,
-  .wp-block-embed {
+  .wp-block-embed,
+  .wp-block-gallery {
     margin-top: 3rem;
 
     figcaption {
