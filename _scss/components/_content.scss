@@ -65,7 +65,8 @@
 
 .wp-block-image figcaption,
 .wp-block-embed figcaption,
-.wp-block-gallery figcaption {
+.wp-block-gallery figcaption
+.caption {
   color: $darkGray;
   display: inline-block;
   width: 100%;
@@ -206,7 +207,8 @@
   .wp-block-gallery {
     margin-top: 3rem;
 
-    figcaption {
+    figcaption,
+    .caption {
       font-size: .875rem;
     }
   }
