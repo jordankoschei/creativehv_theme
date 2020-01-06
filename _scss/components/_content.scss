@@ -65,7 +65,7 @@
 
 .wp-block-image figcaption,
 .wp-block-embed figcaption,
-.wp-block-gallery figcaption
+.wp-block-gallery figcaption,
 .caption {
   color: $darkGray;
   display: inline-block;
@@ -121,6 +121,10 @@
       text-decoration: none;
     }
   }
+}
+
+.wp-block-group__inner-container .wp-block-jetpack-tiled-gallery {
+  margin-bottom: 0 !important;
 }
 
 .wp-block-image,
@@ -207,11 +211,12 @@
   .wp-block-gallery {
     margin-top: 3rem;
 
-    figcaption,
-    .caption {
+    figcaption {
       font-size: .875rem;
     }
   }
+
+  .caption { font-size: .875rem; }
 }
 
 
