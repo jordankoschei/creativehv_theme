@@ -70,7 +70,7 @@
   color: $darkGray;
   display: inline-block;
   width: 100%;
-  font-size: .875em;
+  font-size: .875em !important;
   padding: 0 1rem;
   text-align: center;
 }
@@ -121,10 +121,6 @@
       text-decoration: none;
     }
   }
-}
-
-.wp-block-group__inner-container .wp-block-jetpack-tiled-gallery {
-  margin-bottom: 0 !important;
 }
 
 .wp-block-image,
@@ -216,7 +212,7 @@
     }
   }
 
-  .caption { font-size: .875rem; }
+  .caption { font-size: .875rem !important; }
 }
 
 
