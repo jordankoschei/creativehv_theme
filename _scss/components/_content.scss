@@ -16,7 +16,7 @@
     line-height: 1.6;
   }
 
-  p:nth-child(2) {
+  p.sr-only:first-child + * {
     margin-top: 0;
   }
 
