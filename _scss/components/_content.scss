@@ -16,6 +16,10 @@
     line-height: 1.6;
   }
 
+  li {
+    margin-bottom: 1rem;
+  }
+
   p.sr-only:first-child + * {
     margin-top: 0;
   }
