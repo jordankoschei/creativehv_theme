@@ -1,9 +1,13 @@
 <?php get_header(); ?>
-test
+
 <?php
 $sticky = get_option( 'sticky_posts' );
 if ( ! $sticky) {
-  $sticky = get_posts("numberposts=1&fields=ids&has_password=false");
+  $sticky = get_posts(array(
+    'numberposts' => 1,
+    'fields' => 'ids',
+    'has_password' => false
+  ));
 }
 $query = new WP_Query( 'p=' . $sticky[0] );
 ?>
