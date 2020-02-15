@@ -133,17 +133,6 @@ function should_show_header_line() {
   add_filter('next_posts_link_attributes', function () { return 'class="pagination-next"'; });
   add_filter('previous_posts_link_attributes', function () { return 'class="pagination-prev"'; });
 
-// Create a new filtering function that will add our where clause to the query
-function my_password_post_filter( $where = '' ) {
-    // Make sure this only applies to loops / feeds on the frontend
-    if (!is_single() && !is_admin()) {
-        // exclude password protected
-        $where .= " AND post_password = ''";
-    }
-    return $where;
-}
-add_filter( 'posts_where', 'my_password_post_filter' );
-
 
 // ----------------------------------------------------------------------------------------------//
 // ----------------------------------------------------------------------------------------------//
