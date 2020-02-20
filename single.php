@@ -60,7 +60,7 @@ $email     = 'mailto:?subject=' . get_the_title() . '%20on%20Creative%20Hudson%2
         <p class="sr-only"><?php the_field('description'); ?></p>
         <?php the_content(); ?>
         <?php if (get_field('edited')) : ?>
-          <span class="post-edited">This interview has been edited for length&nbsp;and&nbsp;clarity.</span>
+          <span class="post-edited">This interview has been edited.</span>
         <?php endif; ?>
 
         <div class="post-share">
