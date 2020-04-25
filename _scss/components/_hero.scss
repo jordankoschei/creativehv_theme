@@ -59,6 +59,23 @@
   }
 }
 
+.hero-sponsor {
+  background-color: $lightGray;
+  border-radius: 2px;
+  padding: .25rem .5rem;
+  color: $darkGray;
+  display: block;
+  font-size: .85rem;
+  margin-top: 1rem;
+
+  img {
+    height: .85rem !important;
+    position: relative;
+    top: -2px;
+    width: auto !important;
+  }
+}
+
 @include media('>=sm') {
   .hero {
     margin-left: -2rem;

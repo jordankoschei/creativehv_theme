@@ -147,6 +147,22 @@
   }
 }
 
+.post-sponsor {
+  @extend .special;
+
+  p {
+    display: block;
+    margin: 0 0 1rem;
+  }
+
+  img {
+    height: 1.5rem;
+    width: auto;
+  }
+}
+
+.post-sidebar .post-sponsor { display: none; }
+
 @include media('>=sm') {
   .post-container {
     margin: 2rem auto;
@@ -189,6 +205,9 @@
       max-width: 100%;
     }
   }
+
+  .post-sidebar .post-sponsor { display: block; }
+  .post-content .post-sponsor { display: none; }
 }
 
 @include media('>=lg') {

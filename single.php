@@ -57,6 +57,9 @@ $email     = 'mailto:?subject=' . get_the_title() . '%20on%20Creative%20Hudson%2
   <div class="inner inner--narrow">
     <div class="post-container">
       <main class="post-content">
+        <?php if (get_field('series') == 'accel7'): ?>
+          <?php get_template_part('includes/sponsor-accel7'); ?>
+        <?php endif; ?>
         <p class="sr-only"><?php the_field('description'); ?></p>
         <?php the_content(); ?>
         <?php if (get_field('edited')) : ?>
@@ -81,6 +84,10 @@ $email     = 'mailto:?subject=' . get_the_title() . '%20on%20Creative%20Hudson%2
               <li><a href="<?php the_sub_field('url'); ?>" class="link-<?php the_sub_field('type'); ?>" target="_blank"><?php the_sub_field('name'); ?></a></li>
             <?php endwhile; ?>
           </ul>
+
+          <?php if (get_field('series') == 'accel7'): ?>
+            <?php get_template_part('includes/sponsor-accel7'); ?>
+          <?php endif; ?>
 
           <div class="post-nav">
             <?php previous_post_link('<span>Previously: %link</span>'); ?>

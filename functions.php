@@ -62,7 +62,7 @@ function should_show_header_line() {
 // Add CSS (and JS, eventually, maybe) to <head>
 // Also includes the cache-busting via gulpfile
   function add_theme_scripts() {
-    $cache_buster = 1582159551258;
+    $cache_buster = 1587832832791;
     wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/app.min.css', false, $cache_buster, 'all');
   }
   add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
