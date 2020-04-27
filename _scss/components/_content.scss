@@ -20,7 +20,8 @@
     margin-bottom: 1rem;
   }
 
-  p.sr-only:first-child + * {
+  p.sr-only:first-child + *,
+  .post-sponsor:first-child + p.sr-only + * {
     margin-top: 0;
   }
 
