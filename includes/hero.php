@@ -19,7 +19,7 @@
         </div>
 
         <?php if (get_field('series') == 'accel7'): ?>
-          <span class="hero-sponsor accel7">Sponsored by <img src="<?php echo get_template_directory_uri(); ?>/assets/img/accel7.png" alt="Accel7" /></span>
+          <span class="hero-sponsor accel7">Part of a series on <strong>Hudson Valley entrepreneurs</strong> sponsored by <span>local startup accelerator <img src="<?php echo get_template_directory_uri(); ?>/assets/img/accel7.png" alt="Accel7" /></span></span>
         <?php endif; ?>
       </div>
     </a>

@@ -60,19 +60,22 @@
 }
 
 .hero-sponsor {
-  background-color: $lightGray;
-  border-radius: 2px;
-  padding: .25rem .5rem;
   color: $darkGray;
   display: block;
-  font-size: .85rem;
+  font-size: .75rem;
   margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid transparentize(#000, .95);
 
   img {
-    height: .85rem !important;
+    height: .75rem !important;
     position: relative;
     top: -2px;
     width: auto !important;
+  }
+
+  span {
+    white-space: nowrap;
   }
 }
 
