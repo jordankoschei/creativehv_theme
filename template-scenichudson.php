@@ -9,7 +9,7 @@ Template Name: Scenic Hudson Passport
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <title><?php wp_title(); ?></title>
 <?php wp_head(); ?>
-<meta id="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="alternate" type="application/rss+xml" title="Creative Hudson Valley" href="<?php bloginfo('url'); ?>/?feed=rss2" />
 
 <?php if (get_home_url() == 'http://creativehv.test') : ?>
@@ -133,7 +133,7 @@ Template Name: Scenic Hudson Passport
 
     <div class="passport-bottom">
       <p>You’ve been to <strong id="count"></strong> of <strong>45</strong> Scenic&nbsp;Hudson&nbsp;parks. <span id="snark"></span></p>
-      <p class="disclaimer">This page was made by <strong><a href="https://creativehudsonvalley.com">Creative Hudson Valley</a></strong>. We’re not affiliated with Scenic Hudson — just big&nbsp;fans&nbsp;😍</p>
+      <p class="disclaimer">This is a project from <strong><a href="https://creativehudsonvalley.com">Creative Hudson Valley</a></strong>. We’re not affiliated with Scenic Hudson — just big&nbsp;fans&nbsp;😍</p>
     </div>
   </div>
 

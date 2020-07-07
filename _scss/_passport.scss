@@ -24,7 +24,7 @@
   background-color: $lightestGray;
   box-shadow: $depthHigh;
   padding: 1rem;
-  max-width: 1024px;
+  max-width: 48rem;
   margin: 0 auto;
 
   .disclaimer {
@@ -87,15 +87,15 @@
   }
 
   @include media('>=lg') {
-    width: 1088px;
+    width: 52rem;
     bottom: 1rem;
     border-radius: 10px;
     left: 50%;
     right: auto;
-    margin-left: -544px;
+    margin-left: -26rem;
     z-index: 1;
 
-    p { font-size: 1.25rem; }
+    p { font-size: 1rem; }
   }
 }
 
