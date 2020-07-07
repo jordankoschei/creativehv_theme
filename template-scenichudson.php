@@ -31,7 +31,7 @@ Template Name: Scenic Hudson Passport
     <div class="passport-content">
       <div class="passport-top">
         <h1>Scenic Hudson Parks Passport</h1>
-        <p>Scenic Hudson maintains <strong><a href="https://www.scenichudson.org/explore-the-valley/our-parks/" target="_blank">45 parks</a></strong> throughout the Hudson Valley. How many have you been to?</p>
+        <p><a href="https://www.scenichudson.org" target="_blank">Scenic Hudson</a> maintains <strong><a href="https://www.scenichudson.org/explore-the-valley/our-parks/" target="_blank">45 parks</a></strong> throughout the Hudson Valley. How many have you been to?</p>
         <p class="disclaimer">The page will save your selections, so you can come back later and update your progress.</p>
       </div>
 
