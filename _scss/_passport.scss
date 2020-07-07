@@ -1,4 +1,189 @@
-.passport {
-  height: 100vh;
-  background-color: red;
+.passport-body {
+  background-color: $darkGray;
+  padding: 1rem;
+
+  @include media('>=lg') {
+    padding: 3rem;
+    background-image: url('../img/scenichudson-bgr.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+
+    &::after {
+      position: fixed;
+      content: '';
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 8rem;
+      background: linear-gradient(transparentize(#1b1b1a, 1), transparentize(#1b1b1a, .25), transparentize(#1b1b1a, 0));
+    }
+  }
+}
+
+.passport-container {
+  background-color: $lightestGray;
+  box-shadow: $depthHigh;
+  padding: 1rem;
+  max-width: 1024px;
+  margin: 0 auto;
+
+  .disclaimer {
+    color: $darkGray;
+    font-size: .875rem;
+    margin: 0;
+  }
+
+  @include media('>=lg') {
+    padding: 2rem;
+  }
+}
+
+.passport-top {
+  border-bottom: 1px solid $lightishGray;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+
+  h1 {
+    font-size: 1.75rem;
+    line-height: 1;
+    margin: 0 0 .5rem;
+  }
+
+  p {
+    color: $darkerGray;
+    margin: 0 0 1rem;
+  }
+
+  .disclaimer {
+    font-style: italic;
+  }
+
+  @include media('>=lg') {
+    background-color: $white;
+    border-color: #eee;
+    text-align: center;
+    margin: -2rem -2rem 2rem;
+    padding: 2rem;
+  }
+}
+
+.passport-bottom {
+  padding: 1rem;
+  background-color: $white;
+  box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  p {
+    font-size: 1rem;
+    margin: 0 0 1rem;
+  }
+
+  #snark {
+    display: block;
+  }
+
+  @include media('>=lg') {
+    width: 1088px;
+    bottom: 1rem;
+    border-radius: 10px;
+    left: 50%;
+    right: auto;
+    margin-left: -544px;
+    z-index: 1;
+
+    p { font-size: 1.25rem; }
+  }
+}
+
+.passport-lists {
+  margin-bottom: 140px;
+
+  h2 {
+    font-size: 1.25rem;
+    margin: 0 0 1rem;
+  }
+
+  ul {
+    margin: .25em -.25em 2rem;
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  label {
+    display: block;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: .25em .25em .25em 1.75em;
+    position: relative;
+
+    &:hover,
+    &:focus {
+      background-color: #eee;
+    }
+
+    input {
+      position: absolute;
+      left: 0;
+      top: 0;
+      cursor: pointer;
+      width: 0;
+      height: 0;
+
+      & + span::before {
+        background-color: $white;
+        content: '';
+        position: absolute;
+        left: .25rem;
+        top: .333rem;
+        width: 1rem;
+        height: 1rem;
+        border: 1px solid $gray;
+        border-radius: 3px;
+      }
+
+      &:checked + span::before {
+        background-color: $gold;
+        border-color: $gold;
+        background-image: url('../img/check.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 1rem;
+      }
+    }
+  }
+}
+
+
+@include media('>=md') {
+  .passport-lists {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: space-between;
+    height: 1300px;
+    margin-bottom: 0;
+  }
+
+  .passport-lists > div {
+    width: 50%;
+  }
+
+  /* Re-order items into 3 rows */
+  .passport-lists > div:nth-child(2n+1) { order: 1; }
+  .passport-lists > div:nth-child(2n)   { order: 2; }
+
+  /* Force new columns */
+  .passport-lists::before,
+  .passport-lists::after {
+    content: "";
+    flex-basis: 100%;
+    width: 0;
+    order: 2;
+  }
 }
