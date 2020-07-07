@@ -21,7 +21,7 @@
 }
 
 .passport-container {
-  background-color: $lightestGray;
+  background-color: #F5F5F5;
   box-shadow: $depthHigh;
   padding: 1rem;
   max-width: 48rem;
@@ -59,7 +59,7 @@
   }
 
   @include media('>=lg') {
-    background-color: $white;
+    background-color: #FAFAFA;
     border-color: #eee;
     text-align: center;
     margin: -2rem -2rem 2rem;
@@ -135,6 +135,7 @@
       cursor: pointer;
       width: 0;
       height: 0;
+      opacity: 0;
 
       & + span::before {
         background-color: $white;
