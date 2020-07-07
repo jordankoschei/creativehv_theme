@@ -164,53 +164,55 @@ Template Name: Scenic Hudson Passport
       }
     }
 
+    let storageItems = {};
     if (storageAvailable('localStorage')) {
-      let storageItems = {};
       if(localStorage.getItem('scenicHudsonParks')) {
         storageItems = JSON.parse(localStorage.getItem('scenicHudsonParks'));
         for (i in storageItems) {
           document.getElementById(i).checked = storageItems[i];
         }
       }
-    
-      function updateCount() {
-        let checked = Object.keys(storageItems).filter(k => storageItems[k]);
-        document.getElementById('count').innerHTML = checked.length;
+    }
+  
+    function updateCount() {
+      let checked = Object.keys(storageItems).filter(k => storageItems[k]);
+      document.getElementById('count').innerHTML = checked.length;
 
-        var snark = '';
+      var snark = '';
 
-        if (checked.length === 0) {
-          snark = 'Get out there!'
-        } else if (checked.length < 3) {
-          snark = 'Go explore some more!';
-        } else if (checked.length < 5) {
-          snark = 'Keep exploring!';
-        } else if (checked.length < 10) {
-          snark = 'Not bad!';
-        } else if (checked.length < 20) {
-          snark = 'Wow, impressive!';
-        } else if (checked.length < 35) {
-          snark = "Do you work for Scenic Hudson?";
-        } else if (checked.length < 45) {
-          snark = 'You must be Ned Sullivan!';
-        } else if (checked.length >= 45) {
-          snark = "You are Scenic Hudson embodied 🙌";
-        }
-
-        let snarkEl = document.getElementById('snark');
-        snarkEl.innerHTML = snark;
+      if (checked.length === 0) {
+        snark = 'Get out there!'
+      } else if (checked.length < 3) {
+        snark = 'Go explore some more!';
+      } else if (checked.length < 5) {
+        snark = 'Keep exploring!';
+      } else if (checked.length < 10) {
+        snark = 'Not bad!';
+      } else if (checked.length < 20) {
+        snark = 'Wow, impressive!';
+      } else if (checked.length < 35) {
+        snark = "Do you work for Scenic Hudson?";
+      } else if (checked.length < 45) {
+        snark = 'You must be Ned Sullivan!';
+      } else if (checked.length >= 45) {
+        snark = "You are Scenic Hudson embodied 🙌";
       }
 
-      updateCount();
-
-      document.querySelectorAll('.checkbox').forEach(item => {
-        item.addEventListener('change', ev => {
-          storageItems[ev.target.id] = ev.target.checked;
-          localStorage.setItem("scenicHudsonParks", JSON.stringify(storageItems));
-          updateCount();
-        });
-      });
+      let snarkEl = document.getElementById('snark');
+      snarkEl.innerHTML = snark;
     }
+
+    updateCount();
+
+    document.querySelectorAll('.checkbox').forEach(item => {
+      item.addEventListener('change', ev => {
+        storageItems[ev.target.id] = ev.target.checked;
+        if (storageAvailable('localStorage')) {
+          localStorage.setItem("scenicHudsonParks", JSON.stringify(storageItems));
+        }
+        updateCount();
+      });
+    });
   </script>
 
   <?php wp_footer(); ?>
